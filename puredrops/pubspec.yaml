@@ -61,6 +61,17 @@ flutter:
     - assets/Logo.png
     - assets/Get_Started_Screen.png
     - assets/Home_Screen.png
+    - assets/Water_Consumption_Feature.png
+
+    - assets/icons/Bottle.png
+    - assets/icons/Target.png
+    - assets/icons/Water.png
+    - assets/icons/Map.png
+
+    - assets/icons/Home.png
+    - assets/icons/Heart.png
+    - assets/icons/Location.png
+    - assets/icons/Profile.png
 
   fonts:
     - family: Baloo 2
