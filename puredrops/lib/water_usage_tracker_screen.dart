@@ -1,21 +1,22 @@
 import 'package:Puredrops/custom_navigation_bar.dart';
 import 'package:Puredrops/get_started_screen.dart';
-import 'package:Puredrops/goal_setting_screen.dart';
 import 'package:Puredrops/home_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
-import 'package:Puredrops/water_saving_tips_screen.dart';
-import 'package:Puredrops/water_usage_tracker_screen.dart';
+import 'package:Puredrops/water_consumption_questions/usage_question_1.dart';
 import 'package:flutter/material.dart';
 
-class WaterConsumptionScreen extends StatefulWidget {
-  const WaterConsumptionScreen({super.key});
+class WaterUsageTrackerScreen extends StatefulWidget {
+  const WaterUsageTrackerScreen({super.key});
 
   @override
-  State<WaterConsumptionScreen> createState() => _WaterConsumptionScreenState();
+  State<WaterUsageTrackerScreen> createState() =>
+      _WaterUsageTrackerScreenState();
 }
 
-class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
+class _WaterUsageTrackerScreenState extends State<WaterUsageTrackerScreen> {
+  int gallonCount = 0;
+
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -52,11 +53,9 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/Water_Consumption_Feature.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
+                image: DecorationImage(
+                    image: AssetImage('assets/Water_Consumption_Start.png'),
+                    fit: BoxFit.cover)),
           ),
 
           // Overlay with widgets
@@ -142,7 +141,7 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Water Consumption',
+                            'Water Usage Tracker',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -154,7 +153,7 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
                           Padding(
                             padding: EdgeInsets.only(top: 1),
                             child: Text(
-                              'Explore the Features',
+                              'Reduce Water Usage',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
@@ -195,73 +194,134 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
                     height: 20,
                   ),
 
-                  // Add 3 card implementations here
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        // Card 1 : Water Consumption trcaker
-                        child: buildCard(
-                          context,
-                          title: 'Water Usage Tracker',
-                          description:
-                              'Track your daily water consumption by answering all questions',
-                          imagePath: 'assets/tracker/Tracker.png',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const WaterUsageTrackerScreen()),
-                            );
-                          },
-                          isImageLeft: true,
+                  // Tracker Start
+                  Center(
+                    child: Container(
+                      width: 180,
+                      height: 50,
+                      margin: const EdgeInsets.only(top: 20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF03045E),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment
+                              .center, // Center content in the Row
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '$gallonCount',
+                              style: const TextStyle(
+                                fontSize: 32,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(
+                                width: 8), // Adds space between the texts
+                            const Text(
+                              'Gallons / Day',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+                    ),
+                  ),
 
-                      // Card 2: Set Goals
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        child: buildCard(
-                          context,
-                          title: 'Set Goals',
-                          description:
-                              'Set personalized water-saving goals to reduce your daily or weekly consumption',
-                          imagePath: 'assets/tracker/Goals.png',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const GoalSettingScreen()),
-                            );
-                          },
-                          isImageLeft: false,
-                        ),
-                      ),
+                  const SizedBox(
+                    height: 25,
+                  ),
 
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        // Card 1 : Water Consumption trcaker
-                        child: buildCard(
-                          context,
-                          title: 'Water Saving Tips',
-                          description:
-                              'eceive practical tips and suggestions to help you conserve water in your daily routine',
-                          imagePath: 'assets/tracker/Tips.png',
+                  // Main Box
+                  Container(
+                    width: 385,
+                    height: 432,
+                    padding: const EdgeInsets.only(top: 40),
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: const Color(0xffCAF0F8),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        // Image
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Image.asset(
+                            'assets/Start.png',
+                            width: 284,
+                            height: 116,
+                          ),
+                        ),
+                        // Title
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text(
+                            "What's your water usage?",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Baloo 2',
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 10),
+
+                        // Description
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                          child: Text(
+                            "This calculator helps you estimate your total water use. Do you know how much water goes into your sandwich? Your gadgets? Soon you will!",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'SpaceGrotesk',
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 30),
+
+                        // Start Button
+                        ElevatedButton(
                           onPressed: () {
                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const WaterSavingTipsScreen()),
-                            );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const UsageQuestion1()));
                           },
-                          isImageLeft: true,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF0C7EEC),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            minimumSize: const Size(95, 38),
+                          ),
+                          child: const Text(
+                            'Start',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
-                  )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -278,120 +338,4 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
       ),
     );
   }
-}
-
-Widget buildCard(
-  BuildContext context, {
-  required String title,
-  required String description,
-  required String imagePath,
-  required VoidCallback onPressed,
-  required bool isImageLeft,
-}) {
-  return Container(
-    width: 380,
-    height: 180,
-    decoration: BoxDecoration(
-      color: const Color(0xFFCAF0F8),
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: Row(
-      children: [
-        if (isImageLeft) buildImageSection(imagePath),
-        Expanded(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Align(
-                  alignment: isImageLeft
-                      ? Alignment.centerRight
-                      : Alignment.centerLeft,
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      fontFamily: 'Baloo 2',
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Align(
-                  alignment: isImageLeft
-                      ? Alignment.centerRight
-                      : Alignment.centerLeft,
-                  child: Text(
-                    description,
-                    textAlign: isImageLeft
-                        ? TextAlign.right
-                        : TextAlign.left, // Adjust text alignment
-                    style: const TextStyle(
-                      fontFamily: 'Space Grotesk',
-                      fontSize: 14,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 28),
-                Align(
-                  alignment: isImageLeft
-                      ? Alignment.centerRight
-                      : Alignment.centerLeft,
-                  child: SizedBox(
-                    width: 106, // Set width
-                    height: 31, // Set height
-                    child: TextButton(
-                      onPressed: onPressed,
-                      style: TextButton.styleFrom(
-                        backgroundColor:
-                            const Color(0xFF03045E), // Set background color
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20), // Set border radius
-                        ),
-                      ),
-                      child: const Text(
-                        'See more',
-                        style: TextStyle(
-                          fontFamily: 'Outfit', // Set font family
-                          fontSize: 13, // Set font size
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        if (!isImageLeft) buildImageSection(imagePath),
-      ],
-    ),
-  );
-}
-
-Widget buildImageSection(String imagePath) {
-  return Container(
-    width: 138,
-    height: 162,
-    margin: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: const Color(0xFF90E0EF),
-      borderRadius: BorderRadius.circular(25),
-    ),
-    child: Center(
-      child: Image.asset(
-        imagePath,
-        width: 152,
-        height: 120,
-        fit: BoxFit.contain,
-      ),
-    ),
-  );
 }

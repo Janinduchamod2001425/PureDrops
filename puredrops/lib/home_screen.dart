@@ -257,8 +257,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildFeatureButton('assets/icons/Target.png', 'Tracking',
-                          () {
+                      _buildFeatureButton(
+                          'assets/icons/Consumption.png', 'Consumption', () {
                         // Navigate to Water Consumption screen
                         Navigator.push(
                           context,

@@ -62,16 +62,43 @@ flutter:
     - assets/Get_Started_Screen.png
     - assets/Home_Screen.png
     - assets/Water_Consumption_Feature.png
+    - assets/Water_Saving_Tips.png
+    - assets/Water_Consumption_Start.png
+    - assets/Start.png
+    - assets/Usage_Result_Screen.png
 
     - assets/icons/Bottle.png
     - assets/icons/Target.png
     - assets/icons/Water.png
     - assets/icons/Map.png
+    - assets/icons/Consumption.png
 
     - assets/icons/Home.png
     - assets/icons/Heart.png
     - assets/icons/Location.png
     - assets/icons/Profile.png
+
+    - assets/tracker/Tracker.png
+    - assets/tracker/Goals.png
+    - assets/tracker/Tips.png
+
+    - assets/tips/tip1.png
+    - assets/tips/tip2.png
+    - assets/tips/tip3.png
+    - assets/tips/tip4.png
+    - assets/tips/tip5.png
+    - assets/tips/tip6.png
+
+    - assets/usages/Washing_Machine.png
+    - assets/usages/Bathtub.png
+    - assets/usages/Shower.png
+    - assets/usages/Garden.png
+    - assets/usages/Toilet.png
+    - assets/usages/Sink.png
+    - assets/usages/Pool.png
+    - assets/usages/Bathing.png
+    - assets/usages/Dishwashing.png
+    - assets/usages/Laundry.png
 
   fonts:
     - family: Baloo 2
