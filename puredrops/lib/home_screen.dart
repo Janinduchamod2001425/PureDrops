@@ -1,6 +1,6 @@
+import 'package:Puredrops/authentication/profile_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
 import 'package:Puredrops/donation_screen.dart';
-import 'package:Puredrops/get_started_screen.dart';
 import 'package:Puredrops/location_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/request_screen.dart';
@@ -26,16 +26,15 @@ class _HomeScreenState extends State<HomeScreen> {
         case 0:
           break;
         case 1:
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const GetStartedScreen()),
-          );
           break;
         case 2:
           // Navigate to Map
           break;
         case 3:
-          // Navigate to Profile
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          );
           break;
       }
     });

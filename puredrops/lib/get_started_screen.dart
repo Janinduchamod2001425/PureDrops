@@ -61,7 +61,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   height: 63, // Button height
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/home');
+                        Navigator.pushReplacementNamed(context, '/signup');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(
