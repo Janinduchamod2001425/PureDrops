@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         case 1:
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const GetStartedScreen()),
+            MaterialPageRoute(builder: (context) => const DonationScreen()),
           );
           break;
         case 2:
