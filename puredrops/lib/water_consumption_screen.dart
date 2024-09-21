@@ -229,12 +229,7 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
                               'Set personalized water-saving goals to reduce your daily or weekly consumption',
                           imagePath: 'assets/tracker/Goals.png',
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const GoalSettingScreen()),
-                            );
+                            _showPremiumFeatureFullScreen(context);
                           },
                           isImageLeft: false,
                         ),
@@ -393,5 +388,141 @@ Widget buildImageSection(String imagePath) {
         fit: BoxFit.contain,
       ),
     ),
+  );
+}
+
+void _showPremiumFeatureFullScreen(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext context) {
+      return Container(
+        height: MediaQuery.of(context).size.height *
+            0.85, // Cover most of the screen
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25.0),
+            topRight: Radius.circular(25.0),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              // Cover Image
+              Container(
+                height: 200.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  image: const DecorationImage(
+                    image: AssetImage(
+                        'assets/Earth.png'), // Replace with your cover image asset
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              // Title
+              const Text(
+                'Unlock Premium Features',
+                style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Outfit'),
+              ),
+              const SizedBox(height: 10.0),
+              // Description of Premium Features
+              const Text(
+                'Gain access to personalized goal setting, advanced water tracking, and more with our premium plan.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16.0, color: Colors.grey),
+              ),
+              const SizedBox(height: 20.0),
+              // Features List
+              Expanded(
+                child: ListView(
+                  children: const <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.check, color: Colors.green),
+                      title: Text('Personalized Goal Setting'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.lock,
+                          color: Color.fromARGB(255, 155, 132, 2)),
+                      title: Text('Advanced Water Tracking Insights'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.lock,
+                          color: Color.fromARGB(255, 155, 132, 2)),
+                      title: Text('Interactive Graphical Reports'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.lock,
+                          color: Color.fromARGB(255, 155, 132, 2)),
+                      title: Text('Priority Customer Support'),
+                    ),
+                  ],
+                ),
+              ),
+              // Pricing and Buttons
+              // Pricing and Buttons
+              Column(
+                children: <Widget>[
+                  const Text(
+                    '\$9.99 / Month',
+                    style: TextStyle(
+                      fontSize: 45.0, // Increased font size
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Baloo 2',
+                      color: Color.fromARGB(255, 1, 50, 136),
+                    ),
+                  ),
+                  const SizedBox(
+                      height: 20.0), // Adjust spacing below the price
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          'Cancel',
+                          style: TextStyle(fontSize: 18.0, color: Colors.grey),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Navigate to PaymentScreen for payment
+                          Navigator.of(context).pop();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const GoalSettingScreen()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 40.0, vertical: 15.0),
+                          backgroundColor: const Color(0xff00AEEF),
+                        ),
+                        child: const Text(
+                          'Purchase',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
   );
 }

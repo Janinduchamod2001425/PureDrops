@@ -166,7 +166,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lottie/lottie.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -343,7 +343,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   controller: _nameController,
                   decoration: InputDecoration(
-                    hintText: "Janindu Chamod",
+                    hintText: "Full name",
                     prefixIcon:
                         const Icon(Icons.person, color: Color(0xFF03045E)),
                     filled: true,

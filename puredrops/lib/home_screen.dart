@@ -7,6 +7,7 @@ import 'package:Puredrops/request_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:Puredrops/water_consumption_screen.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,17 +19,89 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
+  Color cardColor = const Color(0xFFCAF0F8);
+  String cardTitle = "Critical Water Demand Zones";
+  String cardSubtitle = "Urgent Water Supply";
+  String cardDescription =
+      "Identify and explore zones with critical water shortages.\nThis map highlights regions where water supply is a priority, helping you make informed decisions on where assistance is needed most. Explore zones with critical water shortages to prioritize assistance where water supply is most needed";
+
+// Example of multiple card data for dynamic content
+  List<Map<String, String>> cardContent = [
+    {
+      "title": "Critical Water Demand Zones",
+      "subtitle": "Urgent Water Supply",
+      "description":
+          "Identify and explore zones with critical water shortages.\nThis map highlights regions where water supply is a priority, helping you make informed decisions on where assistance is needed most. Explore zones with critical water shortages to prioritize assistance where water supply is most needed",
+    },
+    {
+      "title": "Water Conservation Efforts",
+      "subtitle": "Save Water, Save Lives",
+      "description":
+          "Discover effective strategies and innovative methods to conserve water in your community. \nThis guide provides practical tips and actionable steps to reduce water consumption, helping you make a significant impact on sustainable water use. ",
+    },
+    {
+      "title": "Global Water Crisis",
+      "subtitle": "Understanding the Challenges",
+      "description":
+          "Delve into the complexities of the global water crisis and understand the challenges faced by communities worldwide. This overview highlights the key issues affecting water accessibility and quality, including climate change, population growth, and pollution.",
+    },
+  ];
+
+  // Timer to change card content
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startCardUpdate();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
+  }
+
+  void _startCardUpdate() {
+    int index = 0;
+
+    _timer = Timer.periodic(const Duration(seconds: 10), (Timer timer) {
+      setState(() {
+        // Cycle through the card content
+        index = (index + 1) % cardContent.length;
+
+        cardTitle = cardContent[index]["title"]!;
+        cardSubtitle = cardContent[index]["subtitle"]!;
+        cardDescription = cardContent[index]["description"]!;
+        // You can change the card color as well
+        cardColor =
+            index % 2 == 0 ? const Color(0xFF3AC1F4) : const Color(0xFFD0E9E7);
+      });
+    });
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
       // Handle navigation based on selected index
       switch (index) {
         case 0:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+          );
           break;
         case 1:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const DonationScreen()),
+          );
           break;
         case 2:
-          // Navigate to Map
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const LocationScreen()),
+          );
           break;
         case 3:
           Navigator.pushReplacement(
@@ -198,50 +271,47 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 193,
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFCAF0F8),
+                    color: cardColor, // Dynamic color
                     borderRadius: BorderRadius.circular(20),
-                    shape: BoxShape.rectangle,
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3)),
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
                     ],
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Critical Water Demand Zones',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'RobotoMono',
-                            color: Colors.black),
+                        cardTitle, // Dynamic title
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'RobotoMono',
+                          color: Colors.black,
+                        ),
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
+                      const SizedBox(height: 5),
                       Text(
-                        'Urgent Water Supply',
-                        style: TextStyle(
+                        cardSubtitle, // Dynamic subtitle
+                        style: const TextStyle(
                           fontSize: 27,
                           fontFamily: 'SpaceGrotesk',
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                       Text(
-                        'Identify and explore zones with critical water shortages.\nThis map highlights regions where water supply is a priority, helping you make informed decisions on where assistance is needed most. Explore zones with critical water shortages to prioritize assistance where water supply is most needed.',
-                        style: TextStyle(
+                        cardDescription, // Dynamic description
+                        style: const TextStyle(
                           fontSize: 14,
                           fontFamily: 'SpaceGrotesk',
                           fontWeight: FontWeight.w100,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

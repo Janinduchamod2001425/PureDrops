@@ -10,6 +10,19 @@ class GoalSettingScreen extends StatefulWidget {
 class _GoalSettingScreenState extends State<GoalSettingScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/Water_Consumption_Feature.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

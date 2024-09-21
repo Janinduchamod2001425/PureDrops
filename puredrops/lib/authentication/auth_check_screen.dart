@@ -20,7 +20,7 @@ class _AuthCheckScreenState extends State<AuthCheckScreen> {
     bool isLoggedIn = await isUserLoggedIn();
     if (isLoggedIn) {
       // Navigate to profile or home screen if user is logged in
-      Navigator.pushReplacementNamed(context, '/profile');
+      Navigator.pushReplacementNamed(context, '/home');
     } else {
       // Navigate to sign-in screen if user is not logged in
       Navigator.pushReplacementNamed(context, '/start');
