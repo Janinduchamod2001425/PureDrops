@@ -18,22 +18,21 @@ class UsageQuestion6 extends StatefulWidget {
 class _UsageQuestion2State extends State<UsageQuestion6> {
   late int gallonCount;
   late double waterLevel;
+  bool isAnswered = false;
 
   @override
   void initState() {
     super.initState();
-    gallonCount =
-        widget.gallonCount; // Initialize gallon count from previous screen
-    waterLevel =
-        widget.waterLevel; // Initialize water level from previous screen
+    gallonCount = widget.gallonCount; // Initialize gallon count from previous screen
+    waterLevel = widget.waterLevel; // Initialize water level from previous screen
   }
 
   void updateGallonCount(int value) {
     setState(() {
       gallonCount += value; // Updates gallon count based on user input
-      waterLevel +=
-          value / 500; // Adjust water level animation based on gallon count
+      waterLevel += value / 500; // Adjust water level animation based on gallon count
       if (waterLevel > 1.0) waterLevel = 1.0; // Capping the water level at 100%
+      isAnswered = true;
     });
   }
 
@@ -296,7 +295,7 @@ class _UsageQuestion2State extends State<UsageQuestion6> {
                                   children: [
                                     // Daily Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(
                                             10); // Assume 10 gallons for 'UNDER 5'
                                       },
@@ -317,7 +316,7 @@ class _UsageQuestion2State extends State<UsageQuestion6> {
 
                                     // Weekly Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(
                                             20); // Assume 20 gallons for '5-10 MIN'
                                       },
@@ -338,7 +337,7 @@ class _UsageQuestion2State extends State<UsageQuestion6> {
 
                                     // Monthly Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(
                                             30); // Assume 5 gallons for '10-20'
                                       },

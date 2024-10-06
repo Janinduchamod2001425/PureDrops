@@ -16,13 +16,14 @@ class UsageQuestion1 extends StatefulWidget {
 class _UsageQuestion1State extends State<UsageQuestion1> {
   int gallonCount = 0;
   double waterLevel = 0.0; // Initial water level
-
-  void updateGallonCount(int value) {
+  bool isAnswered = false; // Flag to check if an answer has been selected
+  
+  void updateGallonCount(int value, bool isYes) {
     setState(() {
       gallonCount += value; // Updates gallon count based on user input
-      waterLevel +=
-          value / 500; // Adjust water level animation based on gallon count
+      waterLevel += value / 500; // Adjust water level animation based on gallon count
       if (waterLevel > 1.0) waterLevel = 1.0; // Capping the water level at 100%
+      isAnswered = true; // Set isAnswered to true
     });
   }
 
@@ -289,16 +290,20 @@ class _UsageQuestion1State extends State<UsageQuestion1> {
                                   color: Colors.black,
                                 ),
                               ),
+
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   // Yes button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered
+                                      ? null
+                                    : () {
                                       updateGallonCount(
-                                          27); // Assume 27 gallons for 'Yes'
+                                          27, true); // Assume 27 gallons for 'Yes'
                                     },
+
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: const Color(0xFF0C7EEC),
                                       shape: RoundedRectangleBorder(
@@ -314,9 +319,9 @@ class _UsageQuestion1State extends State<UsageQuestion1> {
 
                                   // No Button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered ? null : () {
                                       updateGallonCount(
-                                          0); // 0 gallons for 'No'
+                                          0, false); // 0 gallons for 'No'
 
                                       // Show popup dialog
                                       showDialog(

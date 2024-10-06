@@ -20,22 +20,21 @@ class UsageQuestion4 extends StatefulWidget {
 class _UsageQuestion4State extends State<UsageQuestion4> {
   late int gallonCount;
   late double waterLevel;
+  bool isAnswered = false;
 
   @override
   void initState() {
     super.initState();
-    gallonCount =
-        widget.gallonCount; // Initialize gallon count from previous screen
-    waterLevel =
-        widget.waterLevel; // Initialize water level from previous screen
+    gallonCount = widget.gallonCount; // Initialize gallon count from previous screen
+    waterLevel =  widget.waterLevel; // Initialize water level from previous screen
   }
 
   void updateGallonCount(int value) {
     setState(() {
       gallonCount += value; // Updates gallon count based on user input
-      waterLevel +=
-          value / 500; // Adjust water level animation based on gallon count
+      waterLevel += value / 500; // Adjust water level animation based on gallon count
       if (waterLevel > 1.0) waterLevel = 1.0; // Capping the water level at 100%
+      isAnswered = true;
     });
   }
 
@@ -308,7 +307,7 @@ class _UsageQuestion4State extends State<UsageQuestion4> {
                                 children: [
                                   // Yes button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered ? null : () {
                                       updateGallonCount(
                                           27); // Assume 27 gallons for 'Yes'
                                     },
@@ -327,7 +326,7 @@ class _UsageQuestion4State extends State<UsageQuestion4> {
 
                                   // No Button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered ? null : () {
                                       updateGallonCount(
                                           0); // 0 gallons for 'No'
 

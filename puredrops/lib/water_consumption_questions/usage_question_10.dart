@@ -18,6 +18,7 @@ class UsageQuestion10 extends StatefulWidget {
 class _UsageQuestion10State extends State<UsageQuestion10> {
   late int gallonCount;
   late double waterLevel;
+  bool isAnswered = false;
 
   @override
   void initState() {
@@ -31,9 +32,9 @@ class _UsageQuestion10State extends State<UsageQuestion10> {
   void updateGallonCount(int value) {
     setState(() {
       gallonCount += value; // Updates gallon count based on user input
-      waterLevel +=
-          value / 500; // Adjust water level animation based on gallon count
+      waterLevel += value / 500; // Adjust water level animation based on gallon count
       if (waterLevel > 1.0) waterLevel = 1.0; // Capping the water level at 100%
+      isAnswered = true;
     });
   }
 
@@ -298,7 +299,7 @@ class _UsageQuestion10State extends State<UsageQuestion10> {
                                   children: [
                                     // Daily Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(50);
                                       },
                                       style: ElevatedButton.styleFrom(
@@ -318,7 +319,7 @@ class _UsageQuestion10State extends State<UsageQuestion10> {
 
                                     // Weekly Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(100);
                                       },
                                       style: ElevatedButton.styleFrom(
@@ -338,7 +339,7 @@ class _UsageQuestion10State extends State<UsageQuestion10> {
 
                                     // Monthly Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(150);
                                       },
                                       style: ElevatedButton.styleFrom(
