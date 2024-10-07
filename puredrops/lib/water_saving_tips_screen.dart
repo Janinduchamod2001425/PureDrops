@@ -1,9 +1,16 @@
+import 'package:Puredrops/authentication/profile_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
-import 'package:Puredrops/get_started_screen.dart';
+import 'package:Puredrops/donation_screen.dart';
 import 'package:Puredrops/home_screen.dart';
+import 'package:Puredrops/location_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
+import 'package:Puredrops/water_saving_tips/change_buying_habits.dart';
 import 'package:Puredrops/water_saving_tips/change_diet_screen.dart';
+import 'package:Puredrops/water_saving_tips/cut_indoor_water_use.dart';
+import 'package:Puredrops/water_saving_tips/educational_resources.dart';
+import 'package:Puredrops/water_saving_tips/save_energy_save_water.dart';
+import 'package:Puredrops/water_saving_tips/use_less_water_outdoors.dart';
 import 'package:flutter/material.dart';
 
 class WaterSavingTipsScreen extends StatefulWidget {
@@ -30,14 +37,20 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
         case 1:
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const GetStartedScreen()),
+            MaterialPageRoute(builder: (context) => const DonationScreen()),
           );
           break;
         case 2:
-          // Navigate to Map
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const LocationScreen()),
+          );
           break;
         case 3:
-          // Navigate to Profile
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          );
           break;
       }
     });
@@ -224,7 +237,7 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
+                              builder: (context) => const CutIndoorWaterUse(),
                             ),
                           );
                         },
@@ -241,7 +254,8 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
+                              builder: (context) =>
+                                  const UseLessWaterOutdoors(),
                             ),
                           );
                         },
@@ -258,7 +272,7 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
+                              builder: (context) => const SaveEnergySaveWater(),
                             ),
                           );
                         },
@@ -275,7 +289,7 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
+                              builder: (context) => const ChangeBuyingHabits(),
                             ),
                           );
                         },
@@ -291,15 +305,14 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
+                              builder: (context) =>
+                                  const EducationalResources(),
                             ),
                           );
                         },
                       ),
                     ],
                   ))
-
-                  // ------
                 ],
               ),
             ),
@@ -324,101 +337,57 @@ Widget buildTipCard(
   required String description,
   required VoidCallback onPressed,
 }) {
-  return Container(
-    width: 180,
-    height: 189,
-    decoration: BoxDecoration(
-      color: const Color(0xFFCAF0F8),
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Image on the left
-              Image.asset(
-                imagePath,
-                width: 70,
-                height: 70,
+  return GestureDetector(
+    onTap: onPressed, // Trigger the onPressed callback when the card is tapped
+    child: Container(
+      width: 180,
+      height: 189,
+      decoration: BoxDecoration(
+        color: const Color(0xFFCAF0F8),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Image on the left
+                Image.asset(
+                  imagePath,
+                  width: 70,
+                  height: 70,
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            // Title below the image
+            Text(
+              title,
+              style: const TextStyle(
+                fontFamily: 'Baloo 2',
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-
-              // "See More" button on the right
-              Expanded(
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: onPressed,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF90E0EF),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.more_horiz,
-                        size: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+            ),
+            const SizedBox(height: 6),
+            // Description below the title
+            Expanded(
+              child: Text(
+                description,
+                style: const TextStyle(
+                  fontFamily: 'Outfit',
+                  fontSize: 10,
+                  color: Colors.black54,
                 ),
               ),
-            ],
-          ),
-
-          const SizedBox(height: 8),
-          // Title below the image
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontFamily: 'Baloo 2',
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
             ),
-          ),
-
-          const SizedBox(height: 6),
-
-          // Description below the title
-          Expanded(
-            child: Text(
-              description,
-              style: const TextStyle(
-                fontFamily: 'Outfit',
-                fontSize: 10,
-                color: Colors.black54,
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
-}
-
-class ChangeDietPage extends StatelessWidget {
-  const ChangeDietPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Change Your Diet')),
-      body: const Center(child: Text('Details about changing your diet')),
-    );
-  }
 }

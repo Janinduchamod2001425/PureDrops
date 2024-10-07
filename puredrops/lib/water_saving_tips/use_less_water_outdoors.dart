@@ -7,14 +7,14 @@ import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:flutter/material.dart';
 
-class ChangeDietScreen extends StatefulWidget {
-  const ChangeDietScreen({super.key});
+class UseLessWaterOutdoors extends StatefulWidget {
+  const UseLessWaterOutdoors({super.key});
 
   @override
-  State<ChangeDietScreen> createState() => _ChangeDietScreenState();
+  State<UseLessWaterOutdoors> createState() => _UseLessWaterOutdoorsState();
 }
 
-class _ChangeDietScreenState extends State<ChangeDietScreen> {
+class _UseLessWaterOutdoorsState extends State<UseLessWaterOutdoors> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -142,7 +142,7 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Change Your Diet',
+                            'Use Less Water Outdoors',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -197,67 +197,83 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
 
                   // Add 6 Tips cards
                   Expanded(
-                      child: GridView.count(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: (180 / 189),
-                    children: [
-                      // Card 1
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP1.png',
-                        title: 'Food Choices',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
-                      ),
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: (180 / 189),
+                      children: [
+                        // Card 1
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP13.png',
+                          title: 'Lawns & Gardens',
+                          description:
+                              'If you must, water your lawn when it’s cooler – in the early morning or late evening – to reduce water loss from evaporation. \n\n'
+                              'Set up your sprinklers so they’re not spraying the sidewalk or driveway. Not only does that squander water supplies, it can also wash polluting fertilizers and pesticides into sewer systems. \n\n'
+                              'Turn your sprinklers off when rain is expected, and set up a system with rain/moisture sensors if you have automatic sprinklers. \n\n',
+                        ),
 
-                      // Card 2
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP2.png',
-                        title: 'Processed Food',
-                        description:
-                            '“Process” your own whole foods for on-the-go snacks by chopping up fresh fruit and vegetables, making your own trail mix with dried fruit and nuts or mashing up (with a food processor) beans with olive oil and seasoning for hummus or dip. \n\n'
-                            'Eat less processed food like chips, pre-made meals, candy and soda, because processing requires more water. \n\n',
-                      ),
+                        // Card 2
+                        buildTipCard(context,
+                            imagePath: 'assets/tips/subtips/TP14.png',
+                            title: 'Xeriscaping',
+                            description:
+                                'Minimize or eliminate your lawn watering. Plant native species that don’t require additional watering. Grassy lawns might make sense in wet climates, but in dry areas like the south and southwest, they’re huge water-wasters. \n\n'),
 
-                      // Card 3
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP3.png',
-                        title: 'Food Waste',
-                        description:
-                            'Waste less food. In the Sri Lanka, we waste about 40 percent of our total food supply every year, which also wastes 25 percent of all freshwater consumed annually. \n\n'
-                            'Cook and eat what you buy. Food ingredients are not for looking but for cooking, so go ahead and make something delicious with even the most random assortment of ingredients lurking in your kitchen. \n\n'
-                            'Store your food properly. A big part of keeping food from going bad is storing food properly in the first place. \n\n',
-                      ),
+                        // Card 3
+                        buildTipCard(context,
+                            imagePath: 'assets/tips/subtips/TP15.png',
+                            title: 'Rain Barrels',
+                            description:
+                                'Set up a rain barrel under a gutter outside your house. On average, you can catch 4 gallons of water a day (more in really rainy areas) to use for watering the lawn, washing the car, etc. Just don’t drink it, and make sure to keep it covered with a fine-mesh screen so it doesn’t breed mosquitoes. Check your local municipal regulations to see if a rain barrel is allowed. \n\n'
+                                'Direct gutter downspouts and the water drain line from your air conditioner to a flowerbed, tree base or your lawn. \n\n'),
 
-                      // Card 4
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP4.png',
-                        title: 'Grocery Shopping',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
-                      ),
+                        // Card 4
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP16.png',
+                          title: 'Swimming Pools',
+                          description:
+                              'Use a pool cover. Uncovered pools can lose up to a thousand gallons of water from evaporation each month (as well as energy if your pool is heated)! \n\n'
+                              'Keep your pool water cool to reduce evaporation, and keep the water level low to reduce the amount of water lost to splashing. \n\n'
+                              'Check your pool for leaks often, and if you find a leak get it fixed as soon as possible. \n\n',
+                        ),
 
-                      // Card 5
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP5.png',
-                        title: 'Pet Food Purchases',
-                        description:
-                            'Make your own pet food to control the quality of ingredients, as well as the water footprint. Talk with your veterinarian or an animal nutritionist to determine your pet’s specific needs before attempting this to avoid nutritional deficiencies. Learn more about making your own dog food. \n\n'
-                            'Reuse, repair and buy less. In general, buy fewer animal products like collars, leashes, bowls and toys. Your pet won’t care, we promise. \n\n'
-                            'Buy sustainably made products like hemp dog toys, collars and leashes. \n\n',
-                      ),
-                    ],
-                  ))
+                        // Card 5
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP17.png',
+                          title: 'Car Washing',
+                          description:
+                              'Car washing is part of car maintenance. It doesn’t have to be a major water waster if it’s done properly. \n\n'
+                              'Car washes that recycle usually display signs or logos that identify the practice. \n\n'
+                              'Use self-service car washes. They use the least amount of water because they use high-pressure hoses that have a pistol grip that can be turned on and off easily. Make sure to use the lowest pressure necessary so the water doesn’t evaporate. Turn off the water when soaping up the car and allow the car to drip dry as much as possible so more water gets captured for re-use if they recycle. \n\n',
+                        ),
+
+                        // Card 6
+                        buildTipCard(context,
+                            imagePath: 'assets/tips/subtips/TP18.png',
+                            title: 'Greywater',
+                            description:
+                                'Consider installing a greywater system. These systems allow you to re-use the water from your sinks, washing machine and dishwasher for flushing toilets and watering plants outside. \n\n'),
+
+                        // Card 7
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP19.png',
+                          title: 'Outdoor Water Leaks',
+                          description:
+                              'Check your in-ground irrigation system each spring before you turn it on, to make sure there’s no damage from frost or freezing during the winter. An irrigation system with a leak as small as 1/32 inch in diameter (about the thickness of a dime) can waste about 6,300 gallons of water (and a lot of money) each month. \n\n'
+                              'Make sure your irrigation system is set properly so you’re not overwatering. Next, to find leaks, check out this video to find and repair your leaks. \n\n'
+                              'Find out if your pool is leaking if it seems like it’s losing water by the bucketful. The first step in finding a pool leak is to determine whether the water loss is actually from a leak or from evaporation (in which case, cover that pool when you’re not using it!). This simple bucket test will help you figure it out. \n\n',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 60,
+                  ),
                 ],
               ),
             ),
@@ -350,7 +366,7 @@ Widget buildTipCard(
               title,
               style: const TextStyle(
                 fontFamily: 'Baloo 2',
-                fontSize: 18,
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),

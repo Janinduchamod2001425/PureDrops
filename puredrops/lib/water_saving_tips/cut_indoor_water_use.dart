@@ -7,14 +7,14 @@ import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:flutter/material.dart';
 
-class ChangeDietScreen extends StatefulWidget {
-  const ChangeDietScreen({super.key});
+class CutIndoorWaterUse extends StatefulWidget {
+  const CutIndoorWaterUse({super.key});
 
   @override
-  State<ChangeDietScreen> createState() => _ChangeDietScreenState();
+  State<CutIndoorWaterUse> createState() => _CutIndoorWaterUseState();
 }
 
-class _ChangeDietScreenState extends State<ChangeDietScreen> {
+class _CutIndoorWaterUseState extends State<CutIndoorWaterUse> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -142,7 +142,7 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Change Your Diet',
+                            'Cut Indoor Water Use',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -197,67 +197,94 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
 
                   // Add 6 Tips cards
                   Expanded(
-                      child: GridView.count(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: (180 / 189),
-                    children: [
-                      // Card 1
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP1.png',
-                        title: 'Food Choices',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
-                      ),
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: (180 / 180),
+                      children: [
+                        // Card 1
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP6.png',
+                          title: 'Cooking',
+                          description:
+                              'Install a low-flow faucet on your sink. Conventional faucets flow at around 5 gallons per minute, while low-flow faucets flow at 1.5 gallons per minute. \n\n'
+                              'Boil food in as little water as possible to save water and cooking fuel. You just need enough to submerge your pasta and potatoes. Plus, with less water you keep more flavor and nutrients in your veggies. \n\n'
+                              'Keep a bucket or pitcher in your kitchen to collect leftover drinking water, water used to rinse vegetables and to boil food. When it’s time to water your plants or garden, use this “recycled” water before you fill up your watering can from the tap. \n\n',
+                        ),
 
-                      // Card 2
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP2.png',
-                        title: 'Processed Food',
-                        description:
-                            '“Process” your own whole foods for on-the-go snacks by chopping up fresh fruit and vegetables, making your own trail mix with dried fruit and nuts or mashing up (with a food processor) beans with olive oil and seasoning for hummus or dip. \n\n'
-                            'Eat less processed food like chips, pre-made meals, candy and soda, because processing requires more water. \n\n',
-                      ),
+                        // Card 2
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP7.png',
+                          title: 'Dish Washing',
+                          description:
+                              'Washing dishes is a daily chore that has the potential to waste a lot of water. Water- and energy-efficient dishwashers use much less water than washing dishes by hand does. If you do hand wash, there are steps you can take to use less and stop wasting water. \n\n'
+                              'Get a dishwasher. They almost always use less water than washing by hand, especially with water- and energy-efficient models (just make sure to only run the dishwasher when it’s full). Hand washing one load of dishes can use 20 gallons of water, whereas water- and energy-efficient dishwaters use as little as 4 gallons. Over time, that’s a big difference! \n\n'
+                              'When you do wash by hand, try using a little water to get your sponge soapy and wet, then turning off the faucet until you’re ready to rinse a bunch of dishes at once. Better yet, plug the sink or get a tub to wash dishes in so you don’t need to let the water run. \n\n',
+                        ),
 
-                      // Card 3
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP3.png',
-                        title: 'Food Waste',
-                        description:
-                            'Waste less food. In the Sri Lanka, we waste about 40 percent of our total food supply every year, which also wastes 25 percent of all freshwater consumed annually. \n\n'
-                            'Cook and eat what you buy. Food ingredients are not for looking but for cooking, so go ahead and make something delicious with even the most random assortment of ingredients lurking in your kitchen. \n\n'
-                            'Store your food properly. A big part of keeping food from going bad is storing food properly in the first place. \n\n',
-                      ),
+                        // Card 3
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP8.png',
+                          title: 'Shower & Bath',
+                          description:
+                              'Put a bucket in the shower while you’re waiting for the water to warm up, and use the water you catch for watering plants, flushing the toilet or cleaning. \n\n'
+                              'Spend less time in the shower. If you lose track of time, bring a radio into the bathroom and time yourself by how many songs play while you’re in there. Try to get your shower time down to a single song (epic rock ballads like Freebird don’t count!). \n\n'
+                              'Turn off the water if you shave or brush your teeth in the shower to save time. \n\n',
+                        ),
 
-                      // Card 4
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP4.png',
-                        title: 'Grocery Shopping',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
-                      ),
+                        // Card 4
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP9.png',
+                          title: 'Bathroom Sink',
+                          description:
+                              'Turn off the water when you’re using the bathroom sink. Whether you’re washing your hands, shaving or brushing your teeth, don’t let the faucet run continuously. It’s the simplest way to save water. \n\n'
+                              'Use cold water to brush your teeth because when you save energy, you also save water. \n\n'
+                              'Set the water heater to the proper temperature so your hands don’t get scalded, forcing you to add more cold water water to the mix coming out of your faucet. \n\n',
+                        ),
 
-                      // Card 5
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP5.png',
-                        title: 'Pet Food Purchases',
-                        description:
-                            'Make your own pet food to control the quality of ingredients, as well as the water footprint. Talk with your veterinarian or an animal nutritionist to determine your pet’s specific needs before attempting this to avoid nutritional deficiencies. Learn more about making your own dog food. \n\n'
-                            'Reuse, repair and buy less. In general, buy fewer animal products like collars, leashes, bowls and toys. Your pet won’t care, we promise. \n\n'
-                            'Buy sustainably made products like hemp dog toys, collars and leashes. \n\n',
-                      ),
-                    ],
-                  ))
+                        // Card 5
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP10.png',
+                          title: 'Toilet',
+                          description:
+                              'Get a low-flow toilet. Flushing is the biggest water hog in the house. Older, conventional toilets can use 5 to 7 gallons per flush, but low-flow models use as little as 1.6 gallons. Since the average person flushes five times a day, the gallons can really add up. \n\n'
+                              'To check for a toilet leak, put dye or food coloring into the tank. If color appears in the bowl without flushing, there’s a leak that should be repaired. \n\n'
+                              'Don’t flush things down the toilet to dispose of them. Throw tissues and other bathroom waste in the garbage can, which doesn’t require gallons of water. \n\n',
+                        ),
+
+                        // Card 6
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP11.png',
+                          title: 'Laundry',
+                          description:
+                              'Wash your jeans less – washing them a lot will wear them out more quickly. Consider airing them out or even putting them in the freezer to freshen them up. \n\n'
+                              'For that matter, wash all your clothes less.  You don’t need to wash most of your clothes as often as you probably do. Here are some ideas to help you cut back one of the biggest water users in the home and understand why thrifting can help you buy fewer clothing items. \n\n'
+                              'Dry your clothes on a drying rack or a clothes line. When you save energy, you also save water because power plants use a lot of water to produce electricity. \n\n',
+                        ),
+
+                        // Card 7
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP12.png',
+                          title: 'Indoor Water Leaks',
+                          description:
+                              'Find out how to detect and fix a bathroom leak.  If you look up at the ceiling and see evidence of a leak from the bathroom above, this video will show you how to find the leak. \n\n'
+                              'Fix that leak! A showerhead that leaks 10 drips per minute wastes more than 500 gallons per year. That’s 60 loads of dishes in your dishwasher! Grab some pipe tape and a wrench and make sure that connection is tight. \n\n'
+                              'If your toilet is leaking, you usually just need to replace the flapper. Over time, this inexpensive rubber part decays, or minerals build up on it. It’s usually best to replace the whole rubber flapper—a relatively easy, inexpensive do-it-yourself project (see steps in the link immediately above) that pays for itself in no time. \n\n',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 60,
+                  ),
                 ],
               ),
             ),

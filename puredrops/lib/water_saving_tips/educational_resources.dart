@@ -7,14 +7,14 @@ import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:flutter/material.dart';
 
-class ChangeDietScreen extends StatefulWidget {
-  const ChangeDietScreen({super.key});
+class EducationalResources extends StatefulWidget {
+  const EducationalResources({super.key});
 
   @override
-  State<ChangeDietScreen> createState() => _ChangeDietScreenState();
+  State<EducationalResources> createState() => _EducationalResourcesState();
 }
 
-class _ChangeDietScreenState extends State<ChangeDietScreen> {
+class _EducationalResourcesState extends State<EducationalResources> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -142,7 +142,7 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Change Your Diet',
+                            'Educational Resources',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -154,7 +154,7 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                           Padding(
                             padding: EdgeInsets.only(top: 1),
                             child: Text(
-                              'How to Save Water',
+                              'Learn How to Save Water',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
@@ -204,58 +204,18 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                     childAspectRatio: (180 / 189),
                     children: [
                       // Card 1
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP1.png',
-                        title: 'Food Choices',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
-                      ),
+                      buildTipCard(context,
+                          imagePath: 'assets/tips/subtips/TP27.png',
+                          title: 'For Teachers',
+                          description:
+                              'Free water education material for teachers, including downloadable water footprint lesson plans for middle and high school students. \n\n'),
 
                       // Card 2
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP2.png',
-                        title: 'Processed Food',
-                        description:
-                            '“Process” your own whole foods for on-the-go snacks by chopping up fresh fruit and vegetables, making your own trail mix with dried fruit and nuts or mashing up (with a food processor) beans with olive oil and seasoning for hummus or dip. \n\n'
-                            'Eat less processed food like chips, pre-made meals, candy and soda, because processing requires more water. \n\n',
-                      ),
-
-                      // Card 3
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP3.png',
-                        title: 'Food Waste',
-                        description:
-                            'Waste less food. In the Sri Lanka, we waste about 40 percent of our total food supply every year, which also wastes 25 percent of all freshwater consumed annually. \n\n'
-                            'Cook and eat what you buy. Food ingredients are not for looking but for cooking, so go ahead and make something delicious with even the most random assortment of ingredients lurking in your kitchen. \n\n'
-                            'Store your food properly. A big part of keeping food from going bad is storing food properly in the first place. \n\n',
-                      ),
-
-                      // Card 4
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP4.png',
-                        title: 'Grocery Shopping',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
-                      ),
-
-                      // Card 5
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/subtips/TP5.png',
-                        title: 'Pet Food Purchases',
-                        description:
-                            'Make your own pet food to control the quality of ingredients, as well as the water footprint. Talk with your veterinarian or an animal nutritionist to determine your pet’s specific needs before attempting this to avoid nutritional deficiencies. Learn more about making your own dog food. \n\n'
-                            'Reuse, repair and buy less. In general, buy fewer animal products like collars, leashes, bowls and toys. Your pet won’t care, we promise. \n\n'
-                            'Buy sustainably made products like hemp dog toys, collars and leashes. \n\n',
-                      ),
+                      buildTipCard(context,
+                          imagePath: 'assets/tips/subtips/TP28.png',
+                          title: 'For Students',
+                          description:
+                              'Links to prominent research and websites for students to help them learn water concepts and explore careers in water protection. \n\n'),
                     ],
                   ))
                 ],
