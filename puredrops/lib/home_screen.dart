@@ -1,12 +1,15 @@
 import 'package:Puredrops/authentication/profile_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
+import 'package:Puredrops/district_graph_screen.dart';
+import 'package:Puredrops/district_home_screen.dart';
 import 'package:Puredrops/donation_screen.dart';
-import 'package:Puredrops/location_screen.dart';
+import 'package:Puredrops/districtdeatils_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/request_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:Puredrops/water_consumption_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:Puredrops/chatbot.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -192,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 30,
                 ),
 
-                // Card
+                // 1 Card
                 Container(
                   width: 383,
                   height: 193,
@@ -284,13 +287,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               builder: (context) => const RequestScreen()),
                         );
                       }),
-                      _buildFeatureButton('assets/icons/Map.png', 'Locations',
+                      _buildFeatureButton('assets/icons/Map.png', 'Knowledge',
                           () {
                         // Navigate to Locations screen
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const LocationScreen()),
+                              builder: (context) => const KnowledgePage()),
                         );
                       }),
                     ],
@@ -315,6 +318,29 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           )),
+// Chatbot Icon - Added below the "Donate Water Supply" card
+Positioned(
+  bottom: 120, // Adjust the distance from the bottom
+  right: 20, // Adjust the distance from the right
+  child: FloatingActionButton(
+    onPressed: () {
+      // Handle chatbot button press
+      // Navigate to the Chatbot Screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ChatBot()),
+      );
+    },
+    backgroundColor: Colors.blue,
+    child: const Icon(
+      Icons.chat_bubble_outline,
+      color: Colors.white,
+      size: 30,
+    ),
+  ),
+),
+
+          
           // Bottom Navigation Bar
           Align(
             alignment: Alignment.bottomCenter,

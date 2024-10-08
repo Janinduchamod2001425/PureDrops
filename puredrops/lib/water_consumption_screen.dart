@@ -97,6 +97,8 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
                           ),
                         ),
                       ),
+
+                      // Notification Button
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -267,6 +269,7 @@ class _WaterConsumptionScreenState extends State<WaterConsumptionScreen> {
             ),
           ),
 
+          //bottom nav
           Align(
             alignment: Alignment.bottomCenter,
             child: CustomBottomNavBar(

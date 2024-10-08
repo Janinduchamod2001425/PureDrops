@@ -6,8 +6,13 @@ import 'package:Puredrops/get_started_screen.dart';
 import 'package:Puredrops/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:Puredrops/consts.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 
 void main() async {
+  Gemini.init(
+    apiKey:GEMINI_API_KEY
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
