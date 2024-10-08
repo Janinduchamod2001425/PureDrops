@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Puredrops/custom_navigation_bar.dart';
+
 
 class Puttalam extends StatefulWidget {
   const Puttalam({super.key});

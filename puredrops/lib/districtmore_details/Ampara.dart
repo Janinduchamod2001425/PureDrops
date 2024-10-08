@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Puredrops/custom_navigation_bar.dart';  // Import the custom navigation bar
+ // Import the custom navigation bar
 
 class Ampara extends StatefulWidget {
   const Ampara({super.key});

@@ -1,9 +1,9 @@
 import 'package:Puredrops/authentication/profile_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
-import 'package:Puredrops/district_graph_screen.dart';
+
 import 'package:Puredrops/district_home_screen.dart';
 import 'package:Puredrops/donation_screen.dart';
-import 'package:Puredrops/districtdeatils_screen.dart';
+
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/request_screen.dart';
 import 'package:Puredrops/settings_screen.dart';

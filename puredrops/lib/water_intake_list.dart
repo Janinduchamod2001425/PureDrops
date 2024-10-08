@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:Puredrops/water_intake_page.dart';
 import 'custom_navigation_bar.dart'; // Import custom bottom navigation bar
+import 'package:Puredrops/authentication/profile_screen.dart';
 
 class WaterIntakeList extends StatefulWidget {
   const WaterIntakeList({Key? key}) : super(key: key);
@@ -18,6 +19,21 @@ class _WaterIntakeListState extends State<WaterIntakeList> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+         switch (index) {
+        case 0:
+          break;
+        case 1:
+          break;
+        case 2:
+          // Navigate to Map
+          break;
+        case 3:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          );
+          break;
+      }
     });
   }
 
@@ -118,7 +134,7 @@ class _WaterIntakeListState extends State<WaterIntakeList> {
                   const SizedBox(height: 30),
                   // Page Heading
                   const Text(
-                    'Water Intake History',
+                    'Water Drinking History',
                     style: TextStyle(
                       fontSize: 34,
                       fontWeight: FontWeight.w800,
@@ -150,7 +166,7 @@ class _WaterIntakeListState extends State<WaterIntakeList> {
                               color: const Color(0xFFB2EBF2), // Light blue color for the card
                               child: ListTile(
                                 title: Text('Date: ${data['date']}'),
-                                subtitle: Text('Liters: ${data['liters']}'),
+                                subtitle: Text('Daily Water Drinking Amount (liters): ${data['liters']}'),
                                 trailing: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [

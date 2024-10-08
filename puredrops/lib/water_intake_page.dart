@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:Puredrops/water_intake_list.dart';
 import 'custom_navigation_bar.dart'; // Import custom bottom navigation bar
+import 'package:Puredrops/authentication/profile_screen.dart';
 
 class WaterIntakeForm extends StatefulWidget {
   @override
@@ -76,6 +77,21 @@ class _WaterIntakeFormState extends State<WaterIntakeForm> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+        switch (index) {
+        case 0:
+          break;
+        case 1:
+          break;
+        case 2:
+          // Navigate to Map
+          break;
+        case 3:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          );
+          break;
+      }
     });
   }
 
@@ -162,7 +178,7 @@ class _WaterIntakeFormState extends State<WaterIntakeForm> {
                   const SizedBox(height: 20),
                   // Page Heading
                   const Text(
-                    'Track Water Intake',
+                    'Monitor Daily Drinking Water',
                     style: TextStyle(
                       fontSize: 34,
                       fontWeight: FontWeight.w800,
@@ -200,7 +216,7 @@ class _WaterIntakeFormState extends State<WaterIntakeForm> {
                           TextFormField(
                             controller: _litersController,
                             decoration: InputDecoration(
-                              labelText: 'Liters of Water',
+                              labelText: 'Please enter  Water Drinking Amount (liters)',
                               border: OutlineInputBorder(),
                             ),
                             keyboardType: TextInputType.number,

@@ -79,7 +79,7 @@ class _DistrictdetailsScreenState extends State<DistrictdetailsScreen> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/Usage_Result_Screen.png'),
+                image: AssetImage('assets/Profile_Screen.png'),
                 fit: BoxFit.cover,
               ),
             ),
