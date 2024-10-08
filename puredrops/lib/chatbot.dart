@@ -5,7 +5,7 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:image_picker/image_picker.dart';
-import 'custom_navigation_bar.dart'; 
+
 
 class ChatBot extends StatefulWidget {
   const ChatBot({super.key});

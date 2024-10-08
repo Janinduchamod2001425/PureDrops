@@ -1,8 +1,11 @@
+import 'package:Puredrops/water_intake_page.dart'; // Import the new Water Intake page
+import 'package:Puredrops/water_intake_list.dart';
 import 'package:flutter/material.dart';
 import 'chatbot.dart';  // Import ChatBot page
 import 'package:Puredrops/district_graph_screen.dart'; // Import District details page
 import 'package:Puredrops/districtdeatils_screen.dart'; // Import Graph screen
 import 'custom_navigation_bar.dart';  // Import custom bottom navigation bar
+import 'package:Puredrops/authentication/profile_screen.dart';
 
 class KnowledgePage extends StatefulWidget {
   const KnowledgePage({super.key});
@@ -17,6 +20,26 @@ class _KnowledgePageState extends State<KnowledgePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      // Handle navigation based on selected index
+      switch (index) {
+        case 0:
+          // Navigate to the Knowledge page (current page, so no action needed)
+          break;
+        case 1:
+          // Navigate to Water Intake List
+         
+          break;
+        case 2:
+          // Navigate to Map (this is a placeholder as per your logic)
+          break;
+        case 3:
+          // Navigate to Profile screen
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          );
+          break;
+      }
     });
   }
 
@@ -128,10 +151,10 @@ class _KnowledgePageState extends State<KnowledgePage> {
                     ],
                   ),
                   
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 12),
                   // Updated water detail card
                   Card(
-                    color:  const Color(0xFF00509E), // Light teal background for the card
+                    color: const Color(0xFF00509E), // Light teal background for the card
                     elevation: 4.0,
                     margin: const EdgeInsets.symmetric(vertical: 10.0),
                     shape: RoundedRectangleBorder(
@@ -142,10 +165,9 @@ class _KnowledgePageState extends State<KnowledgePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                         
                           const SizedBox(height: 10),
                           const Text(
-                            'In the Knowledge section, you can explore the following:',
+                            'In the Knowledge section, you can explore ,',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -153,18 +175,17 @@ class _KnowledgePageState extends State<KnowledgePage> {
                               color: Color.fromARGB(255, 243, 242, 242),
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 8),
                           const Text(
                             '1. AI-powered Exploration: Learn not only about clean water and sanitation, but also gain broader insights through interactive AI chat.\n\n'
-                            '2. Clean Water Access (2010–2022): View progress on clean water availability over the years in Sri Lanka.\n\n'
-                            '3. District-wise Details: Explore water and sanitation Details for each district.',
-                            style: TextStyle(fontFamily: 'Outfit',color: Color.fromARGB(255, 249, 248, 248),),
-                            
+                            '2. Clean Water Access (2010–2022): View progress on clean water availability over the years \n\n'
+                            '3. District-wise Details: Explore water and sanitation Details for each district.\n\n'
+                            '4. Daily Water Drinking: Note down how many liters did you drink',
+                            style: TextStyle(fontFamily: 'Outfit', color: Color.fromARGB(255, 249, 248, 248)),
                           ),
                         ],
                       ),
                     ),
-                     
                   ),
                   
                   const SizedBox(height: 20),
@@ -185,6 +206,12 @@ class _KnowledgePageState extends State<KnowledgePage> {
                     context,
                     'Clean Water Access\n(Last 12 Years)',  // Shortened title
                     const GraphScreen(),
+                  ),
+                  const SizedBox(height: 10),
+                  _buildNavigationButton(
+                    context,
+                    'Water Intake List',  // New button title
+                    const WaterIntakeList(),  // Navigate to WaterIntakeList
                   ),
                 ],
               ),
@@ -216,7 +243,7 @@ class _KnowledgePageState extends State<KnowledgePage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-        minimumSize: const Size(double.infinity, 55), // Adjusted button height for compactness
+        minimumSize: const Size(double.infinity, 45), // Adjusted button height for compactness
         padding: const EdgeInsets.symmetric(horizontal: 10), // Reduced padding to avoid overflow
       ),
       child: Row(

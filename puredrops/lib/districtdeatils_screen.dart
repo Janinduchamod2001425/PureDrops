@@ -13,6 +13,7 @@ import 'districtmore_details/Badulla.dart';  // Import the Badulla Page
 import 'districtmore_details/Mannar.dart';  // Import the Mannar Page
 import 'districtmore_details/Ratnapura.dart';  // Import the Ratnapura Page
 import 'custom_navigation_bar.dart';  // Import the custom bottom navigation bar
+import 'package:Puredrops/authentication/profile_screen.dart';
 
 class DistrictdetailsScreen extends StatefulWidget {
   const DistrictdetailsScreen({super.key});
@@ -52,7 +53,21 @@ class _DistrictdetailsScreenState extends State<DistrictdetailsScreen> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      // Handle bottom navigation based on index (e.g., Home, Map, Profile, etc.)
+        switch (index) {
+        case 0:
+          break;
+        case 1:
+          break;
+        case 2:
+          // Navigate to Map
+          break;
+        case 3:
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          );
+          break;
+      }
     });
   }
 
