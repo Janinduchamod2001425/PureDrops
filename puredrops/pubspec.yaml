@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.1
+  sdk: ">=3.5.1 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -39,6 +39,8 @@ dependencies:
   cloud_firestore: ^5.4.1
   shared_preferences: ^2.3.2
   lottie: ^3.1.2
+  google_maps_flutter: ^2.2.2
+  geocoding: ^2.2.1
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
@@ -73,6 +75,7 @@ flutter:
     - assets/Usage_Result_Screen.png
     - assets/Profile_Screen.png
     - assets/Avatar.png
+    - assets/bg_request.png
 
     - assets/icons/Bottle.png
     - assets/icons/Target.png
@@ -111,6 +114,7 @@ flutter:
     - assets/loading/water.json
 
     - assets/authentication/sublogo.png
+    
 
   fonts:
     - family: Baloo 2

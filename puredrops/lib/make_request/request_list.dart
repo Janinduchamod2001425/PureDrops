@@ -1,22 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:Puredrops/make_request/request_details.dart';
+import 'package:Puredrops/settings_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
 import 'package:Puredrops/home_screen.dart';
-import 'package:Puredrops/notifications_screen.dart';
-import 'package:Puredrops/settings_screen.dart';
-import 'package:Puredrops/donation_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:Puredrops/make_request/request_form_1.dart';
-import 'package:Puredrops/make_request/request_list.dart';
 import 'package:Puredrops/authentication/profile_screen.dart';
+import 'package:Puredrops/donation_screen.dart';
 
-class RequestScreen extends StatefulWidget {
-  const RequestScreen({super.key});
-
+class RequestsListPage extends StatefulWidget {
   @override
-  State<RequestScreen> createState() => _RequestScreenState();
+  _RequestsListPageState createState() => _RequestsListPageState();
 }
 
-class _RequestScreenState extends State<RequestScreen> {
-  int _selectedIndex = 0;
+class _RequestsListPageState extends State<RequestsListPage> {
+
+   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -47,16 +46,26 @@ class _RequestScreenState extends State<RequestScreen> {
       }
     });
   }
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  late User? _currentUser;
 
   @override
+  void initState() {
+    super.initState();
+    _currentUser = _auth.currentUser; // Get the current user
+  }
+
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
+          // Background Image (You can modify this based on your needs)
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/Get_Started_Screen.png'),
+                image: AssetImage('assets/Home_Screen.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -65,8 +74,7 @@ class _RequestScreenState extends State<RequestScreen> {
           // Overlay with widgets
           SafeArea(
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,8 +84,7 @@ class _RequestScreenState extends State<RequestScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pop(
-                              context); // Navigate back to the previous screen
+                          Navigator.pop(context); // Navigate back to the previous screen
                         },
                         child: Container(
                           width: 50,
@@ -103,12 +110,7 @@ class _RequestScreenState extends State<RequestScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const NotificationsScreen(),
-                            ),
-                          ); // Navigate to Notifications screen
+                          // Implement navigation to Notifications screen
                         },
                         child: Container(
                           width: 50,
@@ -135,11 +137,9 @@ class _RequestScreenState extends State<RequestScreen> {
                     ],
                   ),
 
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  const SizedBox(height: 30),
 
-                  // Title and settings button
+                  // Title and subtitle
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -147,7 +147,7 @@ class _RequestScreenState extends State<RequestScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Request Clean Water',
+                            'My Requests ',
                             style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w800,
@@ -159,7 +159,7 @@ class _RequestScreenState extends State<RequestScreen> {
                           Padding(
                             padding: EdgeInsets.only(top: 1),
                             child: Text(
-                              'Every drop counts \nMake your request for clean water today',
+                              'View, manage and track all your water \nsupply requests in one place',
                                   
                               style: TextStyle(
                                 fontSize: 15,
@@ -200,148 +200,101 @@ class _RequestScreenState extends State<RequestScreen> {
                   const SizedBox(
                     height: 20,
                   ),
+                 Expanded(
+  child: StreamBuilder<QuerySnapshot>(
+    stream: _firestore
+        .collection('requests')
+        .where('uid', isEqualTo: _currentUser?.uid) // Filter by user ID
+        .snapshots(),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return const Center(child: CircularProgressIndicator());
+      }
+      if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+        return const Center(child: Text('No requests found.'));
+      }
 
+      // Displaying the list of requests
+      return ListView.builder(
+        itemCount: snapshot.data!.docs.length,
+        itemBuilder: (context, index) {
+          var requestData = snapshot.data!.docs[index].data() as Map<String, dynamic>;
+          String requestId = snapshot.data!.docs[index].id; // Get the request document ID
 
-                  
-
-                const SizedBox(
-                  height: 30,
+          return GestureDetector(
+            onTap: () {
+              // Navigate to the details page when a request is tapped
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RequestDetailsPage(
+                    requestData: requestData,
+                    requestId: requestId, // Pass the requestId to the details page
+                  ),
                 ),
-
-
-                  // The action buttons
-                  // The action buttons
-ElevatedButton(
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.white,
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
-      
-    ),
-  ),
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RequestForm1()));
-  },
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                'Make Request',
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'Baloo 2',
-                  fontSize: 22,
-                  color: Color(0xFF000000),
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Need clean water?\nMake your request with just a tap.',
-                style: TextStyle(
-                  fontFamily: 'Baloo 2',
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 86, 83, 83),
-                  
-                ),
-              ),
-            ],
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.9),
-            decoration: BoxDecoration(
-             color: const Color.fromARGB(255, 4, 6, 123), // Icon background color
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(
-              Icons.water_drop_outlined,
-              color: Colors.white,
-              size: 28, // Adjust the size if needed
-            ),
-          ),
-        ],
-      ),
-    ],
-  ),
-),
-const SizedBox(height: 40),
-
-ElevatedButton(
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.white,
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
-    ),
-  ),
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RequestsListPage()));
-  },
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                'View Request',
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'Baloo 2',
-                  fontSize: 22,
-                  color: Color(0xFF000000),
+              );
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Add margin around the card
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12), // Rounded corners
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blueGrey.withOpacity(0.2), // Shadow for depth
+                    blurRadius: 8.0,
+                    spreadRadius: 1.0,
+                    offset: const Offset(2, 2), // Shadow offset
+                  ),
+                ],
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.white, // More white, slightly transparent
+                   const Color.fromARGB(255, 81, 179, 225),// Dark blue
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.4, 3.0], // Adjusting stops for more white
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
-                'Track progress, update details,\nor delete the request with ease.',
-                style: TextStyle(
-                  fontFamily: 'Baloo 2',
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 86, 83, 83),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0), // Padding inside the card
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      requestData['waterType'] ?? 'Unknown Type',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87, // Text color
+                      ),
+                    ),
+                    const SizedBox(height: 8.0), // Space between title and description
+                    Text(
+                      requestData['urgencyLevel'] ?? 'Urgency level not provided',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54, // Lighter text color for description
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.9),
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 4, 6, 123), // Icon background color
-              shape: BoxShape.circle,
             ),
-            child: const Icon(
-              Icons.checklist_rtl,
-              color: Colors.white,
-              size: 28, // Adjust the size if needed
-            ),
-          ),
-        ],
-      ),
-    ],
+          );
+        },
+      );
+    },
   ),
 ),
-const SizedBox(height: 20),
+
 
 
                 ],
-              ),
-            ),
+ ),
+    ),
+            
           ),
-
-          // Bottom custom navigation bar
           Align(
             alignment: Alignment.bottomCenter,
             child: CustomBottomNavBar(
@@ -349,7 +302,7 @@ const SizedBox(height: 20),
               onTap: _onItemTapped,
             ),
           ),
-        ],
+ ],
       ),
     );
   }

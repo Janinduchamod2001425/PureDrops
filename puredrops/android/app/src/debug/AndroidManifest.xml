@@ -1,7 +1,29 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" package="com.example.puredrops" >
     <!-- The INTERNET permission is required for development. Specifically,
          the Flutter tool needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+    <application
+        android:label="PureDrops"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+         tools:replace="android:label, android:icon">
+        
+        <!-- Add your Google Maps API key here -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD-WwMgn-hf0WplCK_fYo6KrD_ZUSSvKio"/>
+
+            
+
+        <!-- Other components like activities, services, etc. -->
+    </application>
+
+
 </manifest>
