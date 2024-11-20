@@ -298,8 +298,6 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                       ),
                     ],
                   ))
-
-                  // ------
                 ],
               ),
             ),
@@ -370,7 +368,7 @@ Widget buildTipCard(
                       child: const Icon(
                         Icons.more_horiz,
                         size: 16,
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
                   ),
@@ -409,16 +407,4 @@ Widget buildTipCard(
       ),
     ),
   );
-}
-
-class ChangeDietPage extends StatelessWidget {
-  const ChangeDietPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Change Your Diet')),
-      body: const Center(child: Text('Details about changing your diet')),
-    );
-  }
 }

@@ -1,6 +1,5 @@
 import 'package:Puredrops/custom_navigation_bar.dart';
 import 'package:Puredrops/get_started_screen.dart';
-import 'package:Puredrops/goal_setting_screen.dart';
 import 'package:Puredrops/home_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
@@ -497,12 +496,10 @@ void _showPremiumFeatureFullScreen(BuildContext context) {
                         onPressed: () {
                           // Navigate to PaymentScreen for payment
                           Navigator.of(context).pop();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const GoalSettingScreen()),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (context) => null),
+                          // );
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
