@@ -1,26 +1,20 @@
-<<<<<<< HEAD
-import 'package:Puredrops/custom_navigation_bar.dart';
-import 'package:Puredrops/get_started_screen.dart';
-import 'package:Puredrops/home_screen.dart';
-=======
 import 'package:Puredrops/authentication/profile_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
 import 'package:Puredrops/donation_screen.dart';
 import 'package:Puredrops/home_screen.dart';
 import 'package:Puredrops/location_screen.dart';
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:flutter/material.dart';
 
-class ChangeDietScreen extends StatefulWidget {
-  const ChangeDietScreen({super.key});
+class SaveEnergySaveWater extends StatefulWidget {
+  const SaveEnergySaveWater({super.key});
 
   @override
-  State<ChangeDietScreen> createState() => _ChangeDietScreenState();
+  State<SaveEnergySaveWater> createState() => _SaveEnergySaveWaterState();
 }
 
-class _ChangeDietScreenState extends State<ChangeDietScreen> {
+class _SaveEnergySaveWaterState extends State<SaveEnergySaveWater> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -37,16 +31,6 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
         case 1:
           Navigator.pushReplacement(
             context,
-<<<<<<< HEAD
-            MaterialPageRoute(builder: (context) => const GetStartedScreen()),
-          );
-          break;
-        case 2:
-          // Navigate to Map
-          break;
-        case 3:
-          // Navigate to Profile
-=======
             MaterialPageRoute(builder: (context) => const DonationScreen()),
           );
           break;
@@ -61,7 +45,6 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
             context,
             MaterialPageRoute(builder: (context) => const ProfileScreen()),
           );
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
           break;
       }
     });
@@ -159,7 +142,7 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Change Your Diet',
+                            'Save Energy, Save Water',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -221,139 +204,24 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                     childAspectRatio: (180 / 189),
                     children: [
                       // Card 1
-                      buildTipCard(
-                        context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip1.png',
-                        title: 'Change Your Diet',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Change Your Diet',
-                            'Detailed instructions on how to change your diet to save water.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP1.png',
-                        title: 'Food Choices',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
-                      ),
+                      buildTipCard(context,
+                          imagePath: 'assets/tips/subtips/TP20.png',
+                          title: 'Electricity',
+                          description:
+                              'Conserve energy. Most people in the US get their electricity from power companies that use hydroelectric and thermoelectric power (from coal, natural gas, nuclear fuels, etc.), both of which have large water footprints. The portion of a person’s water footprint attributed to power production in the US is, on average, 39 gallons per person per day. \n\n'
+                              'Conserve water. It takes a lot of energy to pump, heat, treat and move water, so if you use less water, you’ll use less energy, and that will lower your water footprint. \n\n'),
 
                       // Card 2
                       buildTipCard(
                         context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip2.png',
-                        title: 'Cut Indoor Water Use',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP2.png',
-                        title: 'Processed Food',
+                        imagePath: 'assets/tips/subtips/TP21.png',
+                        title: 'Gasoline',
                         description:
-                            '“Process” your own whole foods for on-the-go snacks by chopping up fresh fruit and vegetables, making your own trail mix with dried fruit and nuts or mashing up (with a food processor) beans with olive oil and seasoning for hummus or dip. \n\n'
-                            'Eat less processed food like chips, pre-made meals, candy and soda, because processing requires more water. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
-                      ),
-
-                      // Card 3
-                      buildTipCard(
-                        context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip3.png',
-                        title: 'Use Less Water Outdoors',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP3.png',
-                        title: 'Food Waste',
-                        description:
-                            'Waste less food. In the Sri Lanka, we waste about 40 percent of our total food supply every year, which also wastes 25 percent of all freshwater consumed annually. \n\n'
-                            'Cook and eat what you buy. Food ingredients are not for looking but for cooking, so go ahead and make something delicious with even the most random assortment of ingredients lurking in your kitchen. \n\n'
-                            'Store your food properly. A big part of keeping food from going bad is storing food properly in the first place. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
-                      ),
-
-                      // Card 4
-                      buildTipCard(
-                        context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip4.png',
-                        title: 'Save Energy, Save Water',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP4.png',
-                        title: 'Grocery Shopping',
-                        description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
-                      ),
-
-                      // Card 5
-                      buildTipCard(
-                        context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip5.png',
-                        title: 'Change Buying Habits',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-                      ),
-
-                      // Card 6
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip6.png',
-                        title: 'Dive Deeper',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
+                            'Drive less. You’ll save gas and you’ll also save water. It takes about 3/4 of a gallon of water to extract, refine and transport the gas used to drive one mile. The average person in the US drives 37 miles per day. \n\n'
+                            'Keep your vehicle properly maintained and your tires properly inflated. Your car will run more efficiently and use less fuel. \n\n',
                       ),
                     ],
                   ))
-
-                  // ------
-=======
-                        imagePath: 'assets/tips/subtips/TP5.png',
-                        title: 'Pet Food Purchases',
-                        description:
-                            'Make your own pet food to control the quality of ingredients, as well as the water footprint. Talk with your veterinarian or an animal nutritionist to determine your pet’s specific needs before attempting this to avoid nutritional deficiencies. Learn more about making your own dog food. \n\n'
-                            'Reuse, repair and buy less. In general, buy fewer animal products like collars, leashes, bowls and toys. Your pet won’t care, we promise. \n\n'
-                            'Buy sustainably made products like hemp dog toys, collars and leashes. \n\n',
-                      ),
-                    ],
-                  ))
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
                 ],
               ),
             ),
@@ -375,80 +243,6 @@ Widget buildTipCard(
   BuildContext context, {
   required String imagePath,
   required String title,
-<<<<<<< HEAD
-  required VoidCallback onPressed,
-}) {
-  return Container(
-    width: 180,
-    height: 189,
-    decoration: BoxDecoration(
-      color: const Color(0xFFCAF0F8),
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Image on the left
-              Image.asset(
-                imagePath,
-                width: 90,
-                height: 70,
-              ),
-
-              // "See More" button on the right
-              Expanded(
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: onPressed,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF90E0EF),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.more_horiz,
-                        size: 16,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 8),
-          // Title below the image
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontFamily: 'Baloo 2',
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-
-          const SizedBox(height: 6),
-        ],
-=======
   required String description,
 }) {
   return GestureDetector(
@@ -529,32 +323,7 @@ Widget buildTipCard(
             const SizedBox(height: 6),
           ],
         ),
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
       ),
     ),
   );
 }
-<<<<<<< HEAD
-
-void _showInstructionsDialog(
-    BuildContext context, String title, String instructions) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text(title),
-        content: Text(instructions),
-        actions: [
-          TextButton(
-            child: const Text('Close'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
-=======
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb

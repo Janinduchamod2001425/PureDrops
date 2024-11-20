@@ -1,26 +1,20 @@
-<<<<<<< HEAD
-import 'package:Puredrops/custom_navigation_bar.dart';
-import 'package:Puredrops/get_started_screen.dart';
-import 'package:Puredrops/home_screen.dart';
-=======
 import 'package:Puredrops/authentication/profile_screen.dart';
 import 'package:Puredrops/custom_navigation_bar.dart';
 import 'package:Puredrops/donation_screen.dart';
 import 'package:Puredrops/home_screen.dart';
 import 'package:Puredrops/location_screen.dart';
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
 import 'package:flutter/material.dart';
 
-class ChangeDietScreen extends StatefulWidget {
-  const ChangeDietScreen({super.key});
+class ChangeBuyingHabits extends StatefulWidget {
+  const ChangeBuyingHabits({super.key});
 
   @override
-  State<ChangeDietScreen> createState() => _ChangeDietScreenState();
+  State<ChangeBuyingHabits> createState() => _ChangeBuyingHabitsState();
 }
 
-class _ChangeDietScreenState extends State<ChangeDietScreen> {
+class _ChangeBuyingHabitsState extends State<ChangeBuyingHabits> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -37,16 +31,6 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
         case 1:
           Navigator.pushReplacement(
             context,
-<<<<<<< HEAD
-            MaterialPageRoute(builder: (context) => const GetStartedScreen()),
-          );
-          break;
-        case 2:
-          // Navigate to Map
-          break;
-        case 3:
-          // Navigate to Profile
-=======
             MaterialPageRoute(builder: (context) => const DonationScreen()),
           );
           break;
@@ -61,7 +45,6 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
             context,
             MaterialPageRoute(builder: (context) => const ProfileScreen()),
           );
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
           break;
       }
     });
@@ -159,7 +142,7 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Change Your Diet',
+                            'Change Buying Habits',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -223,137 +206,58 @@ class _ChangeDietScreenState extends State<ChangeDietScreen> {
                       // Card 1
                       buildTipCard(
                         context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip1.png',
-                        title: 'Change Your Diet',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Change Your Diet',
-                            'Detailed instructions on how to change your diet to save water.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP1.png',
-                        title: 'Food Choices',
+                        imagePath: 'assets/tips/subtips/TP22.png',
+                        title: 'Shop Smarter',
                         description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
+                            'Think before you buy. Do you really need to upgrade your phone? To buy another pair of jeans? Americans shop a lot, and as a result, we have one of the highest water footprints in the world. \n\n'
+                            'Buy less and reuse or repurpose what you already have. \n\n'
+                            'Buy quality, reusable products such as non-disposable cameras, reusable or electric razors, reusable dishes and mugs and utensils and have your child carry lunch in a reusable lunch box. \n\n',
                       ),
 
                       // Card 2
                       buildTipCard(
                         context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip2.png',
-                        title: 'Cut Indoor Water Use',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP2.png',
-                        title: 'Processed Food',
+                        imagePath: 'assets/tips/subtips/TP23.png',
+                        title: 'Recycle Paper',
                         description:
-                            '“Process” your own whole foods for on-the-go snacks by chopping up fresh fruit and vegetables, making your own trail mix with dried fruit and nuts or mashing up (with a food processor) beans with olive oil and seasoning for hummus or dip. \n\n'
-                            'Eat less processed food like chips, pre-made meals, candy and soda, because processing requires more water. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
+                            'Use less paper or recycle it – there are lots of ways to do this. Think, “saving paper (or plastic, glass or aluminum for that matter) equals saving water.” \n\n'
+                            'Compost those paper towels. Some forms of composting will let you include paper. \n\n',
                       ),
 
                       // Card 3
                       buildTipCard(
                         context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip3.png',
-                        title: 'Use Less Water Outdoors',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP3.png',
-                        title: 'Food Waste',
+                        imagePath: 'assets/tips/subtips/TP24.png',
+                        title: 'Recycle Plastic',
                         description:
-                            'Waste less food. In the Sri Lanka, we waste about 40 percent of our total food supply every year, which also wastes 25 percent of all freshwater consumed annually. \n\n'
-                            'Cook and eat what you buy. Food ingredients are not for looking but for cooking, so go ahead and make something delicious with even the most random assortment of ingredients lurking in your kitchen. \n\n'
-                            'Store your food properly. A big part of keeping food from going bad is storing food properly in the first place. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
+                            'When you have other options, avoid plastic because it’s a bad deal for the environment. Plastic manufacturing takes a lot of water and energy and it often ends up polluting our waterways, especially the ocean. \n\n'
+                            'Don’t drink bottled water. It’s the ultimate form of wasteful convenience. It takes at least as much (and often much more) water to make the bottle as the drinking water it holds. \n\n'
+                            'Choose tap water over bottled – it takes about 1.5 gallons of water to manufacture a single plastic bottle (how crazy is that?) and plastic bottles are always made from new plastic material. \n\n',
                       ),
 
                       // Card 4
                       buildTipCard(
                         context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip4.png',
-                        title: 'Save Energy, Save Water',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-=======
-                        imagePath: 'assets/tips/subtips/TP4.png',
-                        title: 'Grocery Shopping',
+                        imagePath: 'assets/tips/subtips/TP25.png',
+                        title: 'Bottles & Cans',
                         description:
-                            'Eat more vegetables. It takes an enormous amount of water to produce animal products like meat and dairy. \n\n'
-                            'Avoid processed foods: A lot of water goes into processing foods. Opt for more fruits, vegetables, leafy greens (like spinach and kale) and whole grains. \n\n'
-                            'Drink one less cup of coffee per day, or – if you really need your caffeine fix – go for tea instead, since coffee has one of the highest water footprints per pound. \n\n',
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
+                            'Fill a reusable water bottle with the beverage of your choice so you don’t have to buy packaging-intensive, single serving sizes. \n\n'
+                            'Don’t put anything but container glass in the recycling. It might be unrecyclable because glass used for mirrors, glassware, etc. has components that can’t be mixed with container glass. \n\n'
+                            'Prepare aluminum cans for recycling by crushing them to save space. \n\n',
                       ),
 
                       // Card 5
                       buildTipCard(
                         context,
-<<<<<<< HEAD
-                        imagePath: 'assets/tips/tip5.png',
-                        title: 'Change Buying Habits',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-                      ),
-
-                      // Card 6
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip6.png',
-                        title: 'Dive Deeper',
-                        onPressed: () {
-                          _showInstructionsDialog(
-                            context,
-                            'Cut Indoor Water Use',
-                            'Detailed instructions on how to cut indoor water use.',
-                          );
-                        },
-                      ),
-                    ],
-                  ))
-
-                  // ------
-=======
-                        imagePath: 'assets/tips/subtips/TP5.png',
-                        title: 'Pet Food Purchases',
+                        imagePath: 'assets/tips/subtips/TP26.png',
+                        title: 'Reuse/Recycle',
                         description:
-                            'Make your own pet food to control the quality of ingredients, as well as the water footprint. Talk with your veterinarian or an animal nutritionist to determine your pet’s specific needs before attempting this to avoid nutritional deficiencies. Learn more about making your own dog food. \n\n'
-                            'Reuse, repair and buy less. In general, buy fewer animal products like collars, leashes, bowls and toys. Your pet won’t care, we promise. \n\n'
-                            'Buy sustainably made products like hemp dog toys, collars and leashes. \n\n',
+                            'Stop and ask yourself whether or not you really need that new piece of clothing. \n\n'
+                            'If you do really need that new top, consider thrift stores for a wardrobe update. Thrift is in! And you can often find really great items at your local thrift store for a lot less than you’d pay for new. \n\n'
+                            'Care for your clothes properly, and your clothes will last for a long time. It takes a lot of water to make clothing, regardless of what kind of the fabric. Taking proper care of your clothes will lessen how many new pieces you need to buy. \n\n',
                       ),
                     ],
                   ))
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
                 ],
               ),
             ),
@@ -375,80 +279,6 @@ Widget buildTipCard(
   BuildContext context, {
   required String imagePath,
   required String title,
-<<<<<<< HEAD
-  required VoidCallback onPressed,
-}) {
-  return Container(
-    width: 180,
-    height: 189,
-    decoration: BoxDecoration(
-      color: const Color(0xFFCAF0F8),
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Image on the left
-              Image.asset(
-                imagePath,
-                width: 90,
-                height: 70,
-              ),
-
-              // "See More" button on the right
-              Expanded(
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: onPressed,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF90E0EF),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.more_horiz,
-                        size: 16,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 8),
-          // Title below the image
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontFamily: 'Baloo 2',
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-
-          const SizedBox(height: 6),
-        ],
-=======
   required String description,
 }) {
   return GestureDetector(
@@ -529,32 +359,7 @@ Widget buildTipCard(
             const SizedBox(height: 6),
           ],
         ),
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
       ),
     ),
   );
 }
-<<<<<<< HEAD
-
-void _showInstructionsDialog(
-    BuildContext context, String title, String instructions) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text(title),
-        content: Text(instructions),
-        actions: [
-          TextButton(
-            child: const Text('Close'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
-=======
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb

@@ -5,22 +5,16 @@ import 'package:Puredrops/home_screen.dart';
 import 'package:Puredrops/location_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
-import 'package:Puredrops/water_saving_tips/change_buying_habits.dart';
-import 'package:Puredrops/water_saving_tips/change_diet_screen.dart';
-import 'package:Puredrops/water_saving_tips/cut_indoor_water_use.dart';
-import 'package:Puredrops/water_saving_tips/educational_resources.dart';
-import 'package:Puredrops/water_saving_tips/save_energy_save_water.dart';
-import 'package:Puredrops/water_saving_tips/use_less_water_outdoors.dart';
 import 'package:flutter/material.dart';
 
-class WaterSavingTipsScreen extends StatefulWidget {
-  const WaterSavingTipsScreen({super.key});
+class UseLessWaterOutdoors extends StatefulWidget {
+  const UseLessWaterOutdoors({super.key});
 
   @override
-  State<WaterSavingTipsScreen> createState() => _WaterSavingTipsScreenState();
+  State<UseLessWaterOutdoors> createState() => _UseLessWaterOutdoorsState();
 }
 
-class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
+class _UseLessWaterOutdoorsState extends State<UseLessWaterOutdoors> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -148,7 +142,7 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Water Saving Tips',
+                            'Use Less Water Outdoors',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -203,116 +197,83 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
 
                   // Add 6 Tips cards
                   Expanded(
-                      child: GridView.count(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: (180 / 189),
-                    children: [
-                      // Card 1
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip1.png',
-                        title: 'Change Your Diet',
-                        description:
-                            'It takes water – a lot of it – to grow, process and transport your food. When you eat lower on the food chain, eat more whole foods and waste less food, you also save water.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
-                            ),
-                          );
-                        },
-                      ),
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: (180 / 189),
+                      children: [
+                        // Card 1
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP13.png',
+                          title: 'Lawns & Gardens',
+                          description:
+                              'If you must, water your lawn when it’s cooler – in the early morning or late evening – to reduce water loss from evaporation. \n\n'
+                              'Set up your sprinklers so they’re not spraying the sidewalk or driveway. Not only does that squander water supplies, it can also wash polluting fertilizers and pesticides into sewer systems. \n\n'
+                              'Turn your sprinklers off when rain is expected, and set up a system with rain/moisture sensors if you have automatic sprinklers. \n\n',
+                        ),
 
-                      // Card 2
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip2.png',
-                        title: 'Cut Indoor Water Use',
-                        description:
-                            'Every day, you rely on water for a wide variety of uses around the house. There are lots of opportunities to cut back on water use in the kitchen, bathroom and laundry room.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CutIndoorWaterUse(),
-                            ),
-                          );
-                        },
-                      ),
+                        // Card 2
+                        buildTipCard(context,
+                            imagePath: 'assets/tips/subtips/TP14.png',
+                            title: 'Xeriscaping',
+                            description:
+                                'Minimize or eliminate your lawn watering. Plant native species that don’t require additional watering. Grassy lawns might make sense in wet climates, but in dry areas like the south and southwest, they’re huge water-wasters. \n\n'),
 
-                      // Card 3
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip3.png',
-                        title: 'Use Less Water Outdoors',
-                        description:
-                            'Of all the residential water we use in the US, on average we use about a quarter outdoors. In some western states it’s half to three-quarters, primarily for lawns and gardens. ',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const UseLessWaterOutdoors(),
-                            ),
-                          );
-                        },
-                      ),
+                        // Card 3
+                        buildTipCard(context,
+                            imagePath: 'assets/tips/subtips/TP15.png',
+                            title: 'Rain Barrels',
+                            description:
+                                'Set up a rain barrel under a gutter outside your house. On average, you can catch 4 gallons of water a day (more in really rainy areas) to use for watering the lawn, washing the car, etc. Just don’t drink it, and make sure to keep it covered with a fine-mesh screen so it doesn’t breed mosquitoes. Check your local municipal regulations to see if a rain barrel is allowed. \n\n'
+                                'Direct gutter downspouts and the water drain line from your air conditioner to a flowerbed, tree base or your lawn. \n\n'),
 
-                      // Card 4
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip4.png',
-                        title: 'Save Energy, Save Water',
-                        description:
-                            'Water and energy are linked. It takes water to make energy (electricity and transportation fuels) and it takes energy to move, heat and treat water. ',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SaveEnergySaveWater(),
-                            ),
-                          );
-                        },
-                      ),
+                        // Card 4
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP16.png',
+                          title: 'Swimming Pools',
+                          description:
+                              'Use a pool cover. Uncovered pools can lose up to a thousand gallons of water from evaporation each month (as well as energy if your pool is heated)! \n\n'
+                              'Keep your pool water cool to reduce evaporation, and keep the water level low to reduce the amount of water lost to splashing. \n\n'
+                              'Check your pool for leaks often, and if you find a leak get it fixed as soon as possible. \n\n',
+                        ),
 
-                      // Card 5
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip5.png',
-                        title: 'Change Buying Habits',
-                        description:
-                            'Practically everything you buy, use and consume has a water footprint because it took water to process and transport it. Being thoughtful about purchases, reusing where you can.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ChangeBuyingHabits(),
-                            ),
-                          );
-                        },
-                      ),
+                        // Card 5
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP17.png',
+                          title: 'Car Washing',
+                          description:
+                              'Car washing is part of car maintenance. It doesn’t have to be a major water waster if it’s done properly. \n\n'
+                              'Car washes that recycle usually display signs or logos that identify the practice. \n\n'
+                              'Use self-service car washes. They use the least amount of water because they use high-pressure hoses that have a pistol grip that can be turned on and off easily. Make sure to use the lowest pressure necessary so the water doesn’t evaporate. Turn off the water when soaping up the car and allow the car to drip dry as much as possible so more water gets captured for re-use if they recycle. \n\n',
+                        ),
 
-                      // Card 6
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip6.png',
-                        title: 'Dive Deeper',
-                        description: 'Explore more educational materials.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const EducationalResources(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ))
+                        // Card 6
+                        buildTipCard(context,
+                            imagePath: 'assets/tips/subtips/TP18.png',
+                            title: 'Greywater',
+                            description:
+                                'Consider installing a greywater system. These systems allow you to re-use the water from your sinks, washing machine and dishwasher for flushing toilets and watering plants outside. \n\n'),
+
+                        // Card 7
+                        buildTipCard(
+                          context,
+                          imagePath: 'assets/tips/subtips/TP19.png',
+                          title: 'Outdoor Water Leaks',
+                          description:
+                              'Check your in-ground irrigation system each spring before you turn it on, to make sure there’s no damage from frost or freezing during the winter. An irrigation system with a leak as small as 1/32 inch in diameter (about the thickness of a dime) can waste about 6,300 gallons of water (and a lot of money) each month. \n\n'
+                              'Make sure your irrigation system is set properly so you’re not overwatering. Next, to find leaks, check out this video to find and repair your leaks. \n\n'
+                              'Find out if your pool is leaking if it seems like it’s losing water by the bucketful. The first step in finding a pool leak is to determine whether the water loss is actually from a leak or from evaporation (in which case, cover that pool when you’re not using it!). This simple bucket test will help you figure it out. \n\n',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 60,
+                  ),
                 ],
               ),
             ),
@@ -335,10 +296,42 @@ Widget buildTipCard(
   required String imagePath,
   required String title,
   required String description,
-  required VoidCallback onPressed,
 }) {
   return GestureDetector(
-    onTap: onPressed, // Trigger the onPressed callback when the card is tapped
+    onTap: () {
+      // Show dialog when the card is tapped
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: const Color(0xFFCAF0F8),
+            title: Text(
+              title,
+              style: const TextStyle(color: Colors.black),
+            ),
+            content: Text(description), // Display the description
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor:
+                      const Color(0xFF0077B6), // Custom button color
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Rounded corners
+                  ),
+                ),
+                child: const Text(
+                  'OK',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    },
     child: Container(
       width: 180,
       height: 189,
@@ -347,18 +340,23 @@ Widget buildTipCard(
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(22.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Center the image horizontally
+              crossAxisAlignment:
+                  CrossAxisAlignment.center, // Center the image vertically
               children: [
-                // Image on the left
-                Image.asset(
-                  imagePath,
-                  width: 70,
-                  height: 70,
+                SizedBox(
+                  height: 100, // Explicit height
+                  width: 100, // Explicit width
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.cover, // Use cover to fill the box
+                  ),
                 ),
               ],
             ),
@@ -368,55 +366,13 @@ Widget buildTipCard(
               title,
               style: const TextStyle(
                 fontFamily: 'Baloo 2',
-                fontSize: 16,
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
-<<<<<<< HEAD
-
-              // "See More" button on the right
-              Expanded(
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: onPressed,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF90E0EF),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.more_horiz,
-                        size: 16,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                  ),
-=======
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 6),
-            // Description below the title
-            Expanded(
-              child: Text(
-                description,
-                style: const TextStyle(
-                  fontFamily: 'Outfit',
-                  fontSize: 10,
-                  color: Colors.black54,
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
-                ),
-              ),
-            ),
           ],
         ),
       ),

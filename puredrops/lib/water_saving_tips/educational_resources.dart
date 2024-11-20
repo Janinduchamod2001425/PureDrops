@@ -5,22 +5,16 @@ import 'package:Puredrops/home_screen.dart';
 import 'package:Puredrops/location_screen.dart';
 import 'package:Puredrops/notifications_screen.dart';
 import 'package:Puredrops/settings_screen.dart';
-import 'package:Puredrops/water_saving_tips/change_buying_habits.dart';
-import 'package:Puredrops/water_saving_tips/change_diet_screen.dart';
-import 'package:Puredrops/water_saving_tips/cut_indoor_water_use.dart';
-import 'package:Puredrops/water_saving_tips/educational_resources.dart';
-import 'package:Puredrops/water_saving_tips/save_energy_save_water.dart';
-import 'package:Puredrops/water_saving_tips/use_less_water_outdoors.dart';
 import 'package:flutter/material.dart';
 
-class WaterSavingTipsScreen extends StatefulWidget {
-  const WaterSavingTipsScreen({super.key});
+class EducationalResources extends StatefulWidget {
+  const EducationalResources({super.key});
 
   @override
-  State<WaterSavingTipsScreen> createState() => _WaterSavingTipsScreenState();
+  State<EducationalResources> createState() => _EducationalResourcesState();
 }
 
-class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
+class _EducationalResourcesState extends State<EducationalResources> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -148,7 +142,7 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Water Saving Tips',
+                            'Educational Resources',
                             style: TextStyle(
                               fontSize: 34,
                               fontWeight: FontWeight.w800,
@@ -160,7 +154,7 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                           Padding(
                             padding: EdgeInsets.only(top: 1),
                             child: Text(
-                              'How to Save Water',
+                              'Learn How to Save Water',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
@@ -210,107 +204,18 @@ class _WaterSavingTipsScreenState extends State<WaterSavingTipsScreen> {
                     childAspectRatio: (180 / 189),
                     children: [
                       // Card 1
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip1.png',
-                        title: 'Change Your Diet',
-                        description:
-                            'It takes water – a lot of it – to grow, process and transport your food. When you eat lower on the food chain, eat more whole foods and waste less food, you also save water.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ChangeDietScreen(),
-                            ),
-                          );
-                        },
-                      ),
+                      buildTipCard(context,
+                          imagePath: 'assets/tips/subtips/TP27.png',
+                          title: 'For Teachers',
+                          description:
+                              'Free water education material for teachers, including downloadable water footprint lesson plans for middle and high school students. \n\n'),
 
                       // Card 2
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip2.png',
-                        title: 'Cut Indoor Water Use',
-                        description:
-                            'Every day, you rely on water for a wide variety of uses around the house. There are lots of opportunities to cut back on water use in the kitchen, bathroom and laundry room.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CutIndoorWaterUse(),
-                            ),
-                          );
-                        },
-                      ),
-
-                      // Card 3
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip3.png',
-                        title: 'Use Less Water Outdoors',
-                        description:
-                            'Of all the residential water we use in the US, on average we use about a quarter outdoors. In some western states it’s half to three-quarters, primarily for lawns and gardens. ',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const UseLessWaterOutdoors(),
-                            ),
-                          );
-                        },
-                      ),
-
-                      // Card 4
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip4.png',
-                        title: 'Save Energy, Save Water',
-                        description:
-                            'Water and energy are linked. It takes water to make energy (electricity and transportation fuels) and it takes energy to move, heat and treat water. ',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SaveEnergySaveWater(),
-                            ),
-                          );
-                        },
-                      ),
-
-                      // Card 5
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip5.png',
-                        title: 'Change Buying Habits',
-                        description:
-                            'Practically everything you buy, use and consume has a water footprint because it took water to process and transport it. Being thoughtful about purchases, reusing where you can.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ChangeBuyingHabits(),
-                            ),
-                          );
-                        },
-                      ),
-
-                      // Card 6
-                      buildTipCard(
-                        context,
-                        imagePath: 'assets/tips/tip6.png',
-                        title: 'Dive Deeper',
-                        description: 'Explore more educational materials.',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const EducationalResources(),
-                            ),
-                          );
-                        },
-                      ),
+                      buildTipCard(context,
+                          imagePath: 'assets/tips/subtips/TP28.png',
+                          title: 'For Students',
+                          description:
+                              'Links to prominent research and websites for students to help them learn water concepts and explore careers in water protection. \n\n'),
                     ],
                   ))
                 ],
@@ -335,10 +240,42 @@ Widget buildTipCard(
   required String imagePath,
   required String title,
   required String description,
-  required VoidCallback onPressed,
 }) {
   return GestureDetector(
-    onTap: onPressed, // Trigger the onPressed callback when the card is tapped
+    onTap: () {
+      // Show dialog when the card is tapped
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: const Color(0xFFCAF0F8),
+            title: Text(
+              title,
+              style: const TextStyle(color: Colors.black),
+            ),
+            content: Text(description), // Display the description
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor:
+                      const Color(0xFF0077B6), // Custom button color
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Rounded corners
+                  ),
+                ),
+                child: const Text(
+                  'OK',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    },
     child: Container(
       width: 180,
       height: 189,
@@ -347,18 +284,23 @@ Widget buildTipCard(
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(22.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Center the image horizontally
+              crossAxisAlignment:
+                  CrossAxisAlignment.center, // Center the image vertically
               children: [
-                // Image on the left
-                Image.asset(
-                  imagePath,
-                  width: 70,
-                  height: 70,
+                SizedBox(
+                  height: 100, // Explicit height
+                  width: 100, // Explicit width
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.cover, // Use cover to fill the box
+                  ),
                 ),
               ],
             ),
@@ -368,55 +310,13 @@ Widget buildTipCard(
               title,
               style: const TextStyle(
                 fontFamily: 'Baloo 2',
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
-<<<<<<< HEAD
-
-              // "See More" button on the right
-              Expanded(
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: onPressed,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF90E0EF),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.more_horiz,
-                        size: 16,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                  ),
-=======
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 6),
-            // Description below the title
-            Expanded(
-              child: Text(
-                description,
-                style: const TextStyle(
-                  fontFamily: 'Outfit',
-                  fontSize: 10,
-                  color: Colors.black54,
->>>>>>> 5da8f74fc620f7e3c21fccf6c03c47ddde2b86eb
-                ),
-              ),
-            ),
           ],
         ),
       ),

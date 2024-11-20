@@ -18,6 +18,7 @@ class UsageQuestion9 extends StatefulWidget {
 class _UsageQuestion9State extends State<UsageQuestion9> {
   late int gallonCount;
   late double waterLevel;
+  bool isAnswered = false;
 
   @override
   void initState() {
@@ -31,9 +32,9 @@ class _UsageQuestion9State extends State<UsageQuestion9> {
   void updateGallonCount(int value) {
     setState(() {
       gallonCount += value; // Updates gallon count based on user input
-      waterLevel +=
-          value / 500; // Adjust water level animation based on gallon count
+      waterLevel += value / 500; // Adjust water level animation based on gallon count
       if (waterLevel > 1.0) waterLevel = 1.0; // Capping the water level at 100%
+      isAnswered = true;
     });
   }
 
@@ -298,7 +299,7 @@ class _UsageQuestion9State extends State<UsageQuestion9> {
                                   children: [
                                     // Daily Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(
                                             50); // Assume 50 gallons for 'By hand'
                                       },
@@ -319,7 +320,7 @@ class _UsageQuestion9State extends State<UsageQuestion9> {
 
                                     // Weekly Button
                                     ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: isAnswered ? null : () {
                                         updateGallonCount(
                                             30); // Assume 30 gallons for 'Using a dishwasher'
                                       },

@@ -10,8 +10,7 @@ class UsageQuestion5 extends StatefulWidget {
   final int gallonCount; // Gallon count from the previous screen
   final double waterLevel; // Water level from the previous screen
 
-  const UsageQuestion5(
-      {super.key, required this.gallonCount, required this.waterLevel});
+  const UsageQuestion5({super.key, required this.gallonCount, required this.waterLevel});
 
   @override
   State<UsageQuestion5> createState() => _UsageQuestion5State();
@@ -20,22 +19,21 @@ class UsageQuestion5 extends StatefulWidget {
 class _UsageQuestion5State extends State<UsageQuestion5> {
   late int gallonCount;
   late double waterLevel;
+  bool isAnswered = false;
 
   @override
   void initState() {
     super.initState();
-    gallonCount =
-        widget.gallonCount; // Initialize gallon count from previous screen
-    waterLevel =
-        widget.waterLevel; // Initialize water level from previous screen
+    gallonCount = widget.gallonCount; // Initialize gallon count from previous screen
+    waterLevel = widget.waterLevel; // Initialize water level from previous screen
   }
 
   void updateGallonCount(int value) {
     setState(() {
       gallonCount += value; // Updates gallon count based on user input
-      waterLevel +=
-          value / 500; // Adjust water level animation based on gallon count
+      waterLevel += value / 500; // Adjust water level animation based on gallon count
       if (waterLevel > 1.0) waterLevel = 1.0; // Capping the water level at 100%
+      isAnswered = true;
     });
   }
 
@@ -308,7 +306,7 @@ class _UsageQuestion5State extends State<UsageQuestion5> {
                                 children: [
                                   // Yes button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered ? null : () {
                                       updateGallonCount(
                                           10); // Assume 10 gallons for 'Yes'
                                     },
@@ -327,7 +325,7 @@ class _UsageQuestion5State extends State<UsageQuestion5> {
 
                                   // No Button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered ? null : () {
                                       updateGallonCount(
                                           30); // Assume 30 gallons for 'No'
                                     },
@@ -346,7 +344,7 @@ class _UsageQuestion5State extends State<UsageQuestion5> {
 
                                   // Some Button
                                   ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: isAnswered ? null : () {
                                       updateGallonCount(
                                           20); // Assume 20 gallons for 'Some'
                                     },

@@ -298,12 +298,61 @@ class _WaterUsageTrackerScreenState extends State<WaterUsageTrackerScreen> {
                         // Start Button
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const UsageQuestion1()));
+                            // Show instruction dialog
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  backgroundColor: const Color(0xFFCAF0F8),
+                                  title: const Text("Instruction", 
+                                    style: TextStyle(
+                                      color: Colors.black
+                                    ),
+                                  ),
+
+                                  content: const Text(
+                                    "After selecting the answer, click the 'Next' button to go ahead.\n\n"
+                                    "If you accidentally clicked the wrong answer, you can go back and select the right answer.\n\n"
+                                    "Additionally, you can choose to skip this question if it's not relevant.",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop(); // Close the dialog
+
+                                        // Navigate to the next screen (UsageQuestion1) after dialog
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => const UsageQuestion1(),
+                                          ),
+                                        );
+                                      },
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: const Color(
+                                            0xFF0077B6), // Custom button color
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(
+                                                  20), // Rounded corners
+                                        ),
+                                      ),
+
+                                      child: const Text("OK", 
+                                        style: TextStyle(
+                                          color: Colors.white
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
                           },
+                          
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF0C7EEC),
                             shape: RoundedRectangleBorder(
