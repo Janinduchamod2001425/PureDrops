@@ -1,7 +1,7 @@
 # PureDrops 💧
 Transforming Water Management for a Sustainable Future
 
-![SmartAgri Demo](./cover/pureDrops.png)
+![PureDrops Demo](./cover/pureDrops.png)
 
 ## Overview
 PureDrops is a mobile application that focuses on clean water management and conservation. It empowers users to monitor their water consumption, request clean water, donate to water supply efforts, and visualize water usage data interactively. With sustainability at its core, PureDrops promotes mindful water use while connecting communities to clean water resources.
