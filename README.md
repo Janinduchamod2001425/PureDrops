@@ -1,6 +1,8 @@
 # PureDrops 💧
 Transforming Water Management for a Sustainable Future
 
+<img src="https://go-skill-icons.vercel.app/api/icons?i=flutter,firebase,dart,googlecloud" />
+
 ![PureDrops Demo](./cover/pureDrops.png)
 
 ## Overview
